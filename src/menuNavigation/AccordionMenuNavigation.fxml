@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="224.0" type="Accordion" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <panes>
+      <TitledPane fx:id="userManagement" onMouseClicked="#selection" prefHeight="200.0" prefWidth="200.0" text="User Management" />
+      <TitledPane animated="false" text="Notification Management">
+         <content>
+            <VBox prefHeight="200.0" prefWidth="222.0" spacing="3.0">
+               <children>
+                  <Text fx:id="manageEmails" onMouseClicked="#selection" strokeType="OUTSIDE" strokeWidth="0.0" text="Manage Emails" wrappingWidth="151.13671875" />
+                  <Text fx:id="announcements" onMouseClicked="#selection" strokeType="OUTSIDE" strokeWidth="0.0" text="Announcements" wrappingWidth="151.13671875">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </Text>
+               </children>
+               <padding>
+                  <Insets left="30.0" top="5.0" />
+               </padding>
+            </VBox>
+         </content>
+      </TitledPane>
+      <TitledPane animated="false" text="Course Management">
+         <content>
+            <VBox prefHeight="200.0" prefWidth="100.0" spacing="3.0">
+               <children>
+                  <Text fx:id="manageCourse" onMouseClicked="#selection" strokeType="OUTSIDE" strokeWidth="0.0" text="Manage Course" wrappingWidth="151.13671875">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </Text>
+                  <Text fx:id="scheduleCourse" onMouseClicked="#selection" strokeType="OUTSIDE" strokeWidth="0.0" text="Schedule Course" wrappingWidth="151.13671875" />
+               </children>
+               <padding>
+                  <Insets left="30.0" top="5.0" />
+               </padding>
+            </VBox>
+         </content>
+      </TitledPane>
+   </panes>
+</fx:root>
