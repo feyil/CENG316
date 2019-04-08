@@ -4,6 +4,8 @@ import java.util.List;
 
 import javafx.scene.layout.Pane;
 import views.container.ComponentContainerController;
+import views.container.ContainerPosition;
+import views.menucontent.usermanagement.UserManagementController;
 
 
 public class ComponentCommunicator implements IMenuCommunicator {
@@ -17,7 +19,9 @@ public class ComponentCommunicator implements IMenuCommunicator {
 	}
 	
 	public void updateSelection(String selection) {
-		updateContainerMenuContent();
+		if(selection.equals("userManagement")) {
+			container.addComponent(new UserManagementController(), ContainerPosition.CENTER);
+		}
 	}
 	
 	public void addMenuContent(Pane menuContent) {
@@ -30,6 +34,11 @@ public class ComponentCommunicator implements IMenuCommunicator {
 	
 	private void updateContainerMenuContent() {
 		
+	}
+	
+	// Dependency makes me sick, sorry
+	public void setComponentContainerController(ComponentContainerController container) {
+		this.container = container;
 	}
 	
 	

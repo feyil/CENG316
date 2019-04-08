@@ -13,12 +13,12 @@ public class TestMenuNavigation extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			AccordionMNController root = new AccordionMNController();
+		/*	AccordionMNController root = new AccordionMNController();
 		
 			Scene scene = new Scene((Parent)root,400,400);
 			//scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setScene(scene);
-			primaryStage.show();
+			primaryStage.show();*/
 		} catch(Exception e) {
 			e.printStackTrace();
 		}

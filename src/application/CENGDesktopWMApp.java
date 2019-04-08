@@ -2,6 +2,7 @@ package application;
 	
 import javafx.application.Application;
 import javafx.stage.Stage;
+import views.ComponentCommunicator;
 import views.container.ComponentContainerController;
 import views.container.ContainerPosition;
 import views.menucontent.usermanagement.UserManagementController;
@@ -28,13 +29,13 @@ public class CENGDesktopWMApp extends Application {
 	
 	public Parent createCENGDesktopApp() {
 		ComponentContainerController container = new ComponentContainerController();
-		Parent menuNavigation = new AccordionMNController();
-		Parent menuContent = new UserManagementController();
+		ComponentCommunicator cmn = new ComponentCommunicator();
+		cmn.setComponentContainerController(container);
 		
+		AccordionMNController menuNavigation = new AccordionMNController();
+		menuNavigation.setMenuCommunicator(cmn);
 		
-		container.addComponent(menuNavigation, ContainerPosition.LEFT);
-		container.addComponent(menuContent, ContainerPosition.CENTER);
-		
+		container.addComponent(menuNavigation, ContainerPosition.LEFT);		
 		return container;
 	}
 	

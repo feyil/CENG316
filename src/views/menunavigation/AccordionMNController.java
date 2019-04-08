@@ -6,15 +6,18 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.control.Accordion;
 import javafx.scene.input.MouseEvent;
+import views.IMenuCommunicator;
 
-public class AccordionMNController extends Accordion implements MenuNavigation<AccordionMNController> {
+public class AccordionMNController extends Accordion {
 	
+	private IMenuCommunicator menuCommunicator;
 	private String navigationSelection;
 	
 	//TODO Observable think about observable option
 	
 	public AccordionMNController() {
 		loadFXML();
+		
 	}
 	
 	public void selection(MouseEvent mouseEvent) {
@@ -26,10 +29,16 @@ public class AccordionMNController extends Accordion implements MenuNavigation<A
 	
 	private void setNavigationSelection(String selection) {
 		this.navigationSelection = selection;
+		
+		menuCommunicator.updateSelection(getSelection());
 	}
 	
 	public String getSelection() {
 		return this.navigationSelection;
+	}
+	
+	public void setMenuCommunicator(IMenuCommunicator menuCommunicator) {
+		this.menuCommunicator = menuCommunicator;
 	}
 	
 	private AccordionMNController loadFXML() {
