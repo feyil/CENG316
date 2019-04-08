@@ -1,4 +1,4 @@
-package appComponentContainer;
+package views.container;
 
 public enum ContainerPosition {
 	CENTER,

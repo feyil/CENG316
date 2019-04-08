@@ -1,4 +1,4 @@
-package appComponentContainer;
+package views.container;
 
 import java.io.IOException;
 
@@ -7,7 +7,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
-import menuNavigation.AccordionMNController;
 
 public class ComponentContainerController extends StackPane {
 	
@@ -42,8 +41,6 @@ public class ComponentContainerController extends StackPane {
 		
 		
 	}
-	
-	
 	
 	private ComponentContainerController loadFXML() {
 		 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ComponentContainer.fxml"));

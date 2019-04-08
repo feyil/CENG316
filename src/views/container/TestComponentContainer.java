@@ -1,8 +1,9 @@
-package appComponentContainer;
+package views.container;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
-import menuNavigation.AccordionMNController;
+import views.menucontent.usermanagement.UserManagementController;
+import views.menunavigation.AccordionMNController;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -18,8 +19,11 @@ public class TestComponentContainer extends Application {
 			AccordionMNController a = new AccordionMNController();
 			root.addComponent(a, ContainerPosition.LEFT);
 			
+			Node k = new UserManagementController();
 			
-			Scene scene = new Scene((Parent)root,800,600);
+			root.addComponent(k, ContainerPosition.CENTER);
+			
+			Scene scene = new Scene((Parent)root,800,400);
 			//scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setScene(scene);
 			primaryStage.show();

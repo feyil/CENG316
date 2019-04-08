@@ -1,4 +1,4 @@
-package menuNavigation;
+package views.menunavigation;
 
 import java.io.IOException;
 
@@ -7,7 +7,7 @@ import javafx.scene.Node;
 import javafx.scene.control.Accordion;
 import javafx.scene.input.MouseEvent;
 
-public class AccordionMNController extends Accordion {
+public class AccordionMNController extends Accordion implements MenuNavigation<AccordionMNController> {
 	
 	private String navigationSelection;
 	
