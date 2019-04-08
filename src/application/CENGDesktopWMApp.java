@@ -5,6 +5,7 @@ import javafx.stage.Stage;
 import views.ComponentCommunicator;
 import views.container.ComponentContainerController;
 import views.container.ContainerPosition;
+import views.menucontent.notificationmanagement.announcement.TestAnnouncement;
 import views.menucontent.usermanagement.UserManagementController;
 import views.menunavigation.AccordionMNController;
 import javafx.scene.Parent;
@@ -19,7 +20,7 @@ public class CENGDesktopWMApp extends Application {
 			// Create app and return it
 			Parent container = createCENGDesktopApp();
 			  
-			Scene scene = new Scene(container,800,400);
+			Scene scene = new Scene(container,960,480);
 			primaryStage.setScene(scene);
 			primaryStage.show();
 		} catch(Exception e) {
@@ -35,6 +36,10 @@ public class CENGDesktopWMApp extends Application {
 		AccordionMNController menuNavigation = new AccordionMNController();
 		menuNavigation.setMenuCommunicator(cmn);
 		
+		TestAnnouncement a = new TestAnnouncement();
+		Parent an = a.build();
+		
+		container.addComponent(an, ContainerPosition.CENTER);
 		container.addComponent(menuNavigation, ContainerPosition.LEFT);		
 		return container;
 	}
