@@ -18,7 +18,7 @@ public class ComponentContainerController extends StackPane {
 	
 	}
 	
-	public void addComponent(Node component, ContainerPosition position) throws Exception {
+	public void addComponent(Node component, ContainerPosition position) {
 		
 		if(position.equals(ContainerPosition.CENTER)) {
 			componentContainer.setCenter(component);
@@ -36,7 +36,7 @@ public class ComponentContainerController extends StackPane {
 			componentContainer.setRight(component);
 		}
 		else {
-			throw new Exception("Invalid Container Position");
+			//throw new Exception("Invalid Container Position");
 		}
 		
 		

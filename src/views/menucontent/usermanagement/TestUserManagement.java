@@ -2,13 +2,8 @@ package views.menucontent.usermanagement;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.Pane;
-import javafx.fxml.FXMLLoader;
 
 
 public class TestUserManagement extends Application {
