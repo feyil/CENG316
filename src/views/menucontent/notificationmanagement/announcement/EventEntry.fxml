@@ -7,7 +7,13 @@
 
 <fx:root alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="570.0" spacing="50.0" type="HBox" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label fx:id="eventName" prefHeight="17.0" prefWidth="81.0" text="Event1" />
+      <Label fx:id="eventName" prefHeight="17.0" prefWidth="81.0" text="Event1">
+         <HBox.margin>
+            <Insets />
+         </HBox.margin>
+         <padding>
+            <Insets left="2.0" />
+         </padding></Label>
       <Label fx:id="eventDate" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="81.0" text="01/01/2000" />
       <Label fx:id="eventTime" alignment="CENTER" prefHeight="17.0" prefWidth="81.0" text="10:00" />
       <Label fx:id="eventLocation" alignment="CENTER" prefHeight="17.0" prefWidth="81.0" text="Urla" />

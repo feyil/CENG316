@@ -17,7 +17,16 @@ public class TestAnnouncement extends Application {
 					.setEventLocation("Bursa")
 					.setEventSelection(true);
 			
-			Scene scene = new Scene(event,800,400);
+			EventTableController eventTable = new EventTableController();
+			eventTable.addItem(event);
+			
+			for(int i = 0; i < 30; i++) {
+				EventEntryController event2 = new EventEntryController();
+				eventTable.addItem(event2);
+			}
+			
+			
+			Scene scene = new Scene(eventTable,800,400);
 			//scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setScene(scene);
 			primaryStage.show();
