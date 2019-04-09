@@ -5,6 +5,8 @@ import javafx.stage.Stage;
 import views.ComponentCommunicator;
 import views.container.ComponentContainerController;
 import views.container.ContainerPosition;
+import views.menucontent.coursemanagement.managecourse.ManageCourseController;
+import views.menucontent.coursemanagement.managecourse.TestManageCourse;
 import views.menucontent.coursemanagement.schedulecourses.TestScheduleCourses;
 import views.menucontent.notificationmanagement.announcement.TestAnnouncement;
 import views.menucontent.notificationmanagement.manageemails.TestManageEmails;
@@ -44,8 +46,13 @@ public class CENGDesktopWMApp extends Application {
 	//	TestManageEmails a = new TestManageEmails();
 	//	Parent an = a.build();
 		
-		TestScheduleCourses a = new TestScheduleCourses();
+	//	TestScheduleCourses a = new TestScheduleCourses();
+	//	Parent an = a.build();
+		
+		TestManageCourse a = new TestManageCourse();
 		Parent an = a.build();
+		
+		
 		
 		container.addComponent(an, ContainerPosition.CENTER);
 		container.addComponent(menuNavigation, ContainerPosition.LEFT);		
