@@ -28,7 +28,9 @@ public class TestManageEmails extends Application {
 		
 		ManageEmailsController mn = new ManageEmailsController();
 		Node a = new ImportEmailListController();
+		Node b = new EditEmailListsController();
 		mn.addSection(a);
+		mn.addSection(b);
 		
 		return mn;
 	}
