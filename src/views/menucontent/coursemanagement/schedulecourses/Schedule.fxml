@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="277.0" prefWidth="601.0" type="VBox" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <HBox prefHeight="33.0" prefWidth="600.0" spacing="41.0">
+         <children>
+            <Label alignment="CENTER" prefWidth="62.0" text="Hours" />
+            <Label alignment="CENTER" prefWidth="62.0" text="Monday" />
+            <Label alignment="CENTER" prefWidth="62.0" text="Tuesday" />
+            <Label alignment="CENTER" prefWidth="62.0" text="Wednesday" />
+            <Label alignment="CENTER" prefWidth="62.0" text="Thursday" />
+            <Label alignment="CENTER" prefWidth="62.0" text="Friday" />
+         </children>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+         <padding>
+            <Insets left="10.0" top="5.0" />
+         </padding>
+      </HBox>
+      <Line endX="500.0" startX="-100.0" />
+      <HBox prefHeight="243.0" prefWidth="600.0">
+         <children>
+            <Line endX="-100.0" endY="242.0" startX="-100.0" />
+            <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0">
+               <children>
+                  <Label alignment="CENTER" prefHeight="17.0" prefWidth="99.0" text="8.45 - 9.30" />
+                  <Label alignment="CENTER" prefHeight="17.0" prefWidth="99.0" text="9.45 - 10.30" />
+                  <Label alignment="CENTER" prefHeight="17.0" prefWidth="99.0" text="10.45 - 11.30" />
+                  <Label alignment="CENTER" prefHeight="17.0" prefWidth="99.0" text="11.45 - 12.30" />
+                  <Label prefHeight="17.0" prefWidth="99.0" />
+                  <Label alignment="CENTER" prefHeight="17.0" prefWidth="99.0" text="13.30 - 14.15" />
+                  <Label alignment="CENTER" prefHeight="17.0" prefWidth="99.0" text="14.30 - 15.15" />
+                  <Label alignment="CENTER" prefHeight="17.0" prefWidth="99.0" text="15.30 - 16.15" />
+                  <Label alignment="CENTER" prefHeight="17.0" prefWidth="99.0" text="16.30 - 17.15" />
+               </children>
+            </VBox>
+            <Line endX="-100.0" endY="242.0" startX="-100.0">
+               <HBox.margin>
+                  <Insets left="5.0" right="5.0" />
+               </HBox.margin>
+            </Line>
+            <VBox fx:id="monday" prefHeight="200.0" prefWidth="100.0" spacing="10.0">
+               <children>
+                  <Label fx:id="m1" prefHeight="17.0" prefWidth="99.0">
+                     <VBox.margin>
+                        <Insets left="5.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label fx:id="m2" prefHeight="17.0" prefWidth="99.0" />
+                  <Label fx:id="m3" prefHeight="17.0" prefWidth="99.0" />
+                  <Label fx:id="m4" prefHeight="17.0" prefWidth="99.0" />
+                  <Label prefHeight="17.0" prefWidth="99.0" />
+                  <Label fx:id="m5" prefHeight="17.0" prefWidth="99.0" />
+                  <Label fx:id="m6" prefHeight="17.0" prefWidth="99.0" />
+                  <Label fx:id="m7" prefHeight="17.0" prefWidth="99.0" />
+                  <Label fx:id="m8" prefHeight="17.0" prefWidth="99.0" />
+               </children>
+            </VBox>
+            <Line endX="-100.0" endY="242.0" startX="-100.0" />
+            <VBox fx:id="tuesday" prefHeight="200.0" prefWidth="100.0" spacing="10.0">
+               <children>
+                  <Label fx:id="tu1" prefHeight="17.0" prefWidth="99.0">
+                     <VBox.margin>
+                        <Insets left="5.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label fx:id="tu2" prefHeight="17.0" prefWidth="99.0" />
+                  <Label fx:id="tu3" prefHeight="17.0" prefWidth="99.0" />
+                  <Label fx:id="tu4" prefHeight="17.0" prefWidth="99.0" />
+                  <Label prefHeight="17.0" prefWidth="99.0" />
+                  <Label fx:id="tu5" prefHeight="17.0" prefWidth="99.0" />
+                  <Label fx:id="tu6" prefHeight="17.0" prefWidth="99.0" />
+                  <Label fx:id="tu7" prefHeight="17.0" prefWidth="99.0" />
+                  <Label fx:id="tu8" prefHeight="17.0" prefWidth="99.0" />
+               </children>
+            </VBox>
+            <Line endX="-100.0" endY="242.0" startX="-100.0" />
+            <VBox fx:id="wednesday" prefHeight="200.0" prefWidth="100.0" spacing="10.0">
+               <children>
+                  <Label fx:id="w1" prefHeight="17.0" prefWidth="99.0">
+                     <VBox.margin>
+                        <Insets left="5.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label fx:id="w2" prefHeight="17.0" prefWidth="99.0" />
+                  <Label fx:id="w3" prefHeight="17.0" prefWidth="99.0" />
+                  <Label fx:id="w4" prefHeight="17.0" prefWidth="99.0" />
+                  <Label prefHeight="17.0" prefWidth="99.0" />
+                  <Label fx:id="w5" prefHeight="17.0" prefWidth="99.0" />
+                  <Label fx:id="w6" prefHeight="17.0" prefWidth="99.0" />
+                  <Label fx:id="w7" prefHeight="17.0" prefWidth="99.0" />
+                  <Label fx:id="w8" prefHeight="17.0" prefWidth="99.0" />
+               </children>
+            </VBox>
+            <Line endX="-100.0" endY="242.0" startX="-100.0" />
+            <VBox fx:id="thursday" prefHeight="200.0" prefWidth="100.0" spacing="10.0">
+               <children>
+                  <Label fx:id="th1" prefHeight="17.0" prefWidth="99.0">
+                     <VBox.margin>
+                        <Insets left="5.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label fx:id="th2" prefHeight="17.0" prefWidth="99.0" />
+                  <Label fx:id="th3" prefHeight="17.0" prefWidth="99.0" />
+                  <Label fx:id="th4" prefHeight="17.0" prefWidth="99.0" />
+                  <Label prefHeight="17.0" prefWidth="99.0" />
+                  <Label fx:id="th5" prefHeight="17.0" prefWidth="99.0" />
+                  <Label fx:id="th6" prefHeight="17.0" prefWidth="99.0" />
+                  <Label fx:id="th7" prefHeight="17.0" prefWidth="99.0" />
+                  <Label fx:id="th8" prefHeight="17.0" prefWidth="99.0" />
+               </children>
+            </VBox>
+            <Line endX="-100.0" endY="242.0" startX="-100.0" />
+            <VBox fx:id="friday" prefHeight="200.0" prefWidth="100.0" spacing="10.0">
+               <children>
+                  <Label fx:id="f1" prefHeight="17.0" prefWidth="99.0">
+                     <VBox.margin>
+                        <Insets left="5.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label fx:id="f2" prefHeight="17.0" prefWidth="99.0" />
+                  <Label fx:id="f3" prefHeight="17.0" prefWidth="99.0" />
+                  <Label fx:id="f4" prefHeight="17.0" prefWidth="99.0" />
+                  <Label prefHeight="17.0" prefWidth="99.0" />
+                  <Label fx:id="f5" prefHeight="17.0" prefWidth="99.0" />
+                  <Label fx:id="f6" prefHeight="17.0" prefWidth="99.0" />
+                  <Label fx:id="f7" prefHeight="17.0" prefWidth="99.0" />
+                  <Label fx:id="f8" prefHeight="17.0" prefWidth="99.0" />
+               </children>
+            </VBox>
+            <Line endX="-100.0" endY="242.0" startX="-100.0" />
+         </children>
+      </HBox>
+      <Line endX="500.0" startX="-100.0" />
+   </children>
+</fx:root>

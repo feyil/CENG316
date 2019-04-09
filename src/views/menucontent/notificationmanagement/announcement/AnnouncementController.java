@@ -9,7 +9,7 @@ import javafx.scene.layout.VBox;
 
 public class AnnouncementController extends VBox {
 	
-	@FXML VBox finalEventTable;
+	@FXML private VBox finalEventTable;
 	
 	public AnnouncementController() {
 		loadFXML();
