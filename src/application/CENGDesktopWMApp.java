@@ -6,6 +6,7 @@ import views.ComponentCommunicator;
 import views.container.ComponentContainerController;
 import views.container.ContainerPosition;
 import views.menucontent.notificationmanagement.announcement.TestAnnouncement;
+import views.menucontent.notificationmanagement.manageemails.TestManageEmails;
 import views.menucontent.usermanagement.UserManagementController;
 import views.menunavigation.AccordionMNController;
 import javafx.scene.Parent;
@@ -36,7 +37,10 @@ public class CENGDesktopWMApp extends Application {
 		AccordionMNController menuNavigation = new AccordionMNController();
 		menuNavigation.setMenuCommunicator(cmn);
 		
-		TestAnnouncement a = new TestAnnouncement();
+	//	TestAnnouncement a = new TestAnnouncement();
+	//	Parent an = a.build();
+		
+		TestManageEmails a = new TestManageEmails();
 		Parent an = a.build();
 		
 		container.addComponent(an, ContainerPosition.CENTER);
