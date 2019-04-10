@@ -1,4 +1,4 @@
-package views.poup;
+package views.popup;
 
 import javafx.application.Application;
 import javafx.scene.Parent;

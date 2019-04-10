@@ -1,4 +1,4 @@
-package views.poup;
+package views.popup;
 
 
 import java.io.IOException;
