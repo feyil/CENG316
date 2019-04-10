@@ -1,18 +1,17 @@
 package views.menucontent.coursemanagement.managecourse;
 
-import java.io.IOException;
 
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.layout.VBox;
+import views.menucontent.AbstractMenuContent;
 
-public class ManageCourseController extends VBox {
+public class ManageCourseController extends AbstractMenuContent {
 	
 	@FXML private VBox courseTable;
 	
 	public ManageCourseController() {
-		loadFXML();
+		super("ManageCourse.fxml");
 	}
 	
 	public ManageCourseController setCourseTable(Node table) {
@@ -20,15 +19,4 @@ public class ManageCourseController extends VBox {
 		return this;
 	}
 	
-	private void loadFXML() {
-		 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ManageCourse.fxml"));
-		 fxmlLoader.setRoot(this);
-		 fxmlLoader.setController(this);
-
-		 try {
-			 	fxmlLoader.load();
-		} catch (IOException exception) {
-				throw new RuntimeException(exception);
-		}
-	}
 }
