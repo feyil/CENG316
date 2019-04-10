@@ -15,6 +15,8 @@ public abstract class AbstractInWindowPopupController extends VBox {
 	public abstract AbstractInWindowPopupController load(VBox poup);
 	public abstract AbstractInWindowPopupController show();
 	public abstract AbstractInWindowPopupController close();
+	public abstract AbstractInWindowPopupController setPopupTitle(String title);
+	public abstract String getPopupTitle();
 	protected abstract AbstractInWindowPopupController loadFXML();
 	
 	

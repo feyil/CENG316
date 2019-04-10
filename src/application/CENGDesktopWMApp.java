@@ -61,7 +61,7 @@ public class CENGDesktopWMApp extends Application {
 		
 		popup.setPoupDestination(container);
 		
-	
+		popup.setPopupTitle("Manage Emails");
 		popup.load((VBox)new TestManageEmails().build());
 		popup.show();
 	//	popup.close();

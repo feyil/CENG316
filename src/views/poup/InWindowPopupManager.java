@@ -1,11 +1,11 @@
 package views.poup;
 
+
 import java.io.IOException;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Background;
+import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 
@@ -22,6 +22,8 @@ public class InWindowPopupManager extends AbstractInWindowPopupController {
 	}
 	
 	@FXML private VBox loadedPopup;
+	@FXML private Label popupTitle;
+	
 	private StackPane popupDestination;
 	
 	private Boolean active;
@@ -42,6 +44,17 @@ public class InWindowPopupManager extends AbstractInWindowPopupController {
 	
 	public Boolean isLoaded() {
 		return loaded;
+	}
+	
+	@Override
+	public AbstractInWindowPopupController setPopupTitle(String title) {
+		popupTitle.setText(title);
+		return this;
+	}
+
+	@Override
+	public String getPopupTitle() {
+		return popupTitle.getText();
 	}
 	
 	@Override
@@ -92,4 +105,6 @@ public class InWindowPopupManager extends AbstractInWindowPopupController {
 		
 		return this;
 	}
+
+
 }
