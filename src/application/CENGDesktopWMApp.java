@@ -29,6 +29,7 @@ public class CENGDesktopWMApp extends Application {
 			Parent container = createCENGDesktopApp();
 			  
 			Scene scene = new Scene(container,960,480);
+			primaryStage.setTitle("CENG Desktop Website Management App (IZTECH)");
 			primaryStage.setResizable(false);
 			primaryStage.setScene(scene);
 			primaryStage.show();
