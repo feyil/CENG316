@@ -12,8 +12,12 @@ import views.menucontent.notificationmanagement.announcement.TestAnnouncement;
 import views.menucontent.notificationmanagement.manageemails.TestManageEmails;
 import views.menucontent.usermanagement.UserManagementController;
 import views.menunavigation.AccordionMNController;
+import views.poup.AbstractInWindowPopupController;
+import views.poup.InWindowPopupManager;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.layout.VBox;
 
 
 public class CENGDesktopWMApp extends Application {
@@ -25,6 +29,7 @@ public class CENGDesktopWMApp extends Application {
 			Parent container = createCENGDesktopApp();
 			  
 			Scene scene = new Scene(container,960,480);
+			primaryStage.setResizable(false);
 			primaryStage.setScene(scene);
 			primaryStage.show();
 		} catch(Exception e) {
@@ -52,7 +57,14 @@ public class CENGDesktopWMApp extends Application {
 		TestManageCourse a = new TestManageCourse();
 		Parent an = a.build();
 		
+		AbstractInWindowPopupController popup = InWindowPopupManager.getInstance();
 		
+		popup.setPoupDestination(container);
+		
+	
+		popup.load((VBox)new TestManageEmails().build());
+		popup.show();
+	//	popup.close();
 		
 		container.addComponent(an, ContainerPosition.CENTER);
 		container.addComponent(menuNavigation, ContainerPosition.LEFT);		

@@ -1,15 +1,15 @@
-package views.menucontent.notificationmanagement.manageemails;
+package views.poup;
 
 import javafx.application.Application;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class TestManageEmails extends Application {
+public class TestInWindowPopupManager extends Application {
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
+		// TODO Auto-generated method stub
 		try {
 			
 			// Create app and return it
@@ -21,18 +21,14 @@ public class TestManageEmails extends Application {
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
-		
 	}
-	
+	 
 	public Parent build() {
 		
-		ManageEmailsController mn = new ManageEmailsController();
-		Node a = new ImportEmailListController();
-		Node b = new EditEmailListsController();
-		mn.addSection(a);
-		mn.addSection(b);
+		Parent a = InWindowPopupManager.getInstance();
 		
-		return mn;
+		
+		return a;
 	}
 	
 	public static void main(String[] args) {

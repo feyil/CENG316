@@ -15,6 +15,8 @@ public class ComponentContainerController extends StackPane {
 	
 	public ComponentContainerController() {
 		loadFXML();
+		
+		
 	
 	}
 	
