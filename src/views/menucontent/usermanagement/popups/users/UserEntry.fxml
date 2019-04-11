@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+
+
+<fx:root alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="460.0" spacing="20.0" type="HBox" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label fx:id="nameSurname" prefHeight="17.0" prefWidth="126.0" text="Alice Adrian" />
+      <Label fx:id="email" prefHeight="17.0" prefWidth="141.0" text="aliceadrian@gmailc.om" />
+      <Label fx:id="userType" prefHeight="17.0" prefWidth="69.0" text="Admin" />
+      <Button mnemonicParsing="false" text="Delete" />
+   </children>
+   <padding>
+      <Insets left="5.0" />
+   </padding>
+</fx:root>

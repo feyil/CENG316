@@ -11,6 +11,8 @@ import views.menucontent.coursemanagement.schedulecourses.TestScheduleCourses;
 import views.menucontent.notificationmanagement.announcement.TestAnnouncement;
 import views.menucontent.notificationmanagement.manageemails.TestManageEmails;
 import views.menucontent.usermanagement.UserManagementController;
+import views.menucontent.usermanagement.popups.TestPopups;
+import views.menucontent.usermanagement.popups.users.UsersPopupController;
 import views.menunavigation.AccordionMNController;
 import views.popup.AbstractInWindowPopupController;
 import views.popup.InWindowPopupManager;
@@ -62,8 +64,9 @@ public class CENGDesktopWMApp extends Application {
 		
 		popup.setPoupDestination(container);
 		
-		popup.setPopupTitle("Manage Emails");
-		popup.load((VBox)new TestManageEmails().build());
+		popup.setPopupTitle("Users");
+	// 	popup.load((VBox)new TestManageEmails().build());
+		popup.load((VBox)new TestPopups().build());
 		popup.show();
 	//	popup.close();
 		
