@@ -35,5 +35,11 @@ public class UserDAO {
 		
 		return null;
 	}
+	
+	public Boolean deleteUser(int userID) {
+		System.out.println("Make the needed SQL call delete the user from db");
+		System.out.println("Return result of the operation");
+		return false;
+	}
 
 }

@@ -2,10 +2,12 @@ package views.menucontent.usermanagement.popups.users;
 
 import java.io.IOException;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
+import models.UserModel;
 
 public class UserEntryController extends HBox {
 	
@@ -42,6 +44,18 @@ public class UserEntryController extends HBox {
 	public UserEntryController setUserType(String uType) {
 		userType.setText(uType);
 		return this;
+	}
+	
+	public void delete(ActionEvent e) {
+		System.out.println("Delete button clicked");
+		
+		System.out.println("call UserModel static delete method with given userID");
+		UserModel.deleteUser(5);
+		
+		System.out.println("Disable the entry clicked");
+		setDisabled(true);
+		
+		
 	}
  	
 	private UserEntryController loadFXML(String fxmlFileName) {
