@@ -1,8 +1,19 @@
 package models;
 
+import java.util.List;
+
 import dataaccess.UserDAO;
 
 public class UserModel {
+	
+	public static List<UserModel> getModels() {
+		System.out.println("Access DAO Object");
+		System.out.println("Call getModels method");
+		UserDAO.getInstance().getModels();
+		System.out.println("Return getted List<UserModel>");
+		
+		return null;
+	}
 	
 	private String userID;
 	private String userEmail;

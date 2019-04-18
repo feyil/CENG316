@@ -68,7 +68,7 @@ public class InWindowPopupManager extends AbstractInWindowPopupController {
 		if(isLoaded()) {
 			loadedPopup.getChildren().remove(0);
 		}
-		
+		this.loaded = true;
 		loadedPopup.getChildren().add(popup);
 		
 		return this;
@@ -87,6 +87,7 @@ public class InWindowPopupManager extends AbstractInWindowPopupController {
 	public AbstractInWindowPopupController close() {
 		if(isActive()) {
 			popupDestination.getChildren().remove(popupDestination.getChildren().size() - 1);
+			this.active = false;
 		}
 		return null;
 	}

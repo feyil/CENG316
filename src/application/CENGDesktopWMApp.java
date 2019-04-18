@@ -64,10 +64,10 @@ public class CENGDesktopWMApp extends Application {
 		
 		popup.setPoupDestination(container);
 		
-		popup.setPopupTitle("Users");
+	//	popup.setPopupTitle("Users");
 	// 	popup.load((VBox)new TestManageEmails().build());
-		popup.load((VBox)new TestPopups().build());
-		popup.show();
+	//	popup.load((VBox)new TestPopups().build());
+	//	popup.show();
 	//	popup.close();
 		
 		container.addComponent(an, ContainerPosition.CENTER);

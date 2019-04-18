@@ -1,5 +1,7 @@
 package dataaccess;
 
+import java.util.List;
+
 import models.UserModel;
 
 public class UserDAO {
@@ -25,6 +27,13 @@ public class UserDAO {
 		System.out.println("Success status returned as boolean");
 		
 		return false;
+	}
+	
+	public List<UserModel> getModels() {
+		System.out.println("Make the needed SQL calls get all models");
+		System.out.println("Wrap all models into a list and return it");
+		
+		return null;
 	}
 
 }

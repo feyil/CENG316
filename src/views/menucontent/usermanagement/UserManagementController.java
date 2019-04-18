@@ -13,6 +13,10 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import models.UserModel;
 import views.menucontent.AbstractMenuContent;
+import views.menucontent.usermanagement.popups.users.UsersPopupBuilder;
+import views.menucontent.usermanagement.popups.users.UsersPopupController;
+import views.popup.AbstractInWindowPopupController;
+import views.popup.InWindowPopupManager;
 
 
 public class UserManagementController extends AbstractMenuContent {
@@ -38,7 +42,18 @@ public class UserManagementController extends AbstractMenuContent {
 	@FXML
 	public void showUsers(ActionEvent clickedEvent) {
 		System.out.println("Show Users Clicked");
+		
+		System.out.println("By using user popup builder build user popup");
+		UsersPopupBuilder usersPopup = new UsersPopupBuilder();
+		UsersPopupController ct = usersPopup.build();
+		
+		System.out.println("Get Popup manager instance");
+		System.out.println("load the popup");
+		System.out.println("show the popup");
 	
+		AbstractInWindowPopupController pm = InWindowPopupManager.getInstance();
+		pm.load(ct);
+		pm.show();
 	}
 	
 	@FXML
