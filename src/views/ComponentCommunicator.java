@@ -6,13 +6,9 @@ import java.util.List;
 import javafx.scene.layout.Pane;
 import views.container.ComponentContainerController;
 import views.container.ContainerPosition;
-import views.menucontent.coursemanagement.managecourse.ManageCourseController;
 import views.menucontent.coursemanagement.managecourse.TestManageCourse;
-import views.menucontent.coursemanagement.schedulecourses.ScheduleCoursesController;
 import views.menucontent.coursemanagement.schedulecourses.TestScheduleCourses;
-import views.menucontent.notificationmanagement.announcement.AnnouncementController;
 import views.menucontent.notificationmanagement.announcement.TestAnnouncement;
-import views.menucontent.notificationmanagement.manageemails.ManageEmailsController;
 import views.menucontent.notificationmanagement.manageemails.TestManageEmails;
 import views.menucontent.usermanagement.UserManagementController;
 
@@ -21,7 +17,7 @@ public class ComponentCommunicator implements IMenuCommunicator {
 	
 	private ComponentContainerController container;
 	private List<Pane> menuContentList;
-	// Pop-up reference can be put here
+	private String currentSelection;
 	
 	public ComponentCommunicator() {
 		menuContentList = new ArrayList<Pane>();
@@ -56,19 +52,16 @@ public class ComponentCommunicator implements IMenuCommunicator {
 			
 			if(searchResult != null) {
 				menuContentList.add(searchResult);
+				this.currentSelection = menuContentID;
 			}
 		}
 		
 		container.addComponent(searchResult, ContainerPosition.CENTER);
 	}
 	
-	
-	public void addMenuContent(Pane menuContent) {
-		
-	}
-	
-	public void removeMenuContent(String menuId) {
-		
+	public void reflesh() {
+		this.menuContentList = new ArrayList<Pane>();
+		updateSelection(currentSelection);
 	}
 	
 	private Pane searchFor(String menuID) {
@@ -82,12 +75,8 @@ public class ComponentCommunicator implements IMenuCommunicator {
 		return null;
 	}
 	
-	// Dependency makes me sick, sorry
 	public void setComponentContainerController(ComponentContainerController container) {
 		this.container = container;
 	}
 	
-	
-	
-
 }

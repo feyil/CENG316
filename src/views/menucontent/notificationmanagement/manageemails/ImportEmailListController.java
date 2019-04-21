@@ -3,6 +3,7 @@ package views.menucontent.notificationmanagement.manageemails;
 import java.io.File;
 import java.io.IOException;
 
+import application.CENGDesktopWMApp;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -29,8 +30,8 @@ public class ImportEmailListController extends VBox {
 		File selectedList = openFileChooser();
 		System.out.println("Parse the readed file and store somewhere(db or local file system)");
 		parse(selectedList);
-		
-	
+
+		CENGDesktopWMApp.getInstance().reflesh();
 	}
 	
 	private File openFileChooser() {
