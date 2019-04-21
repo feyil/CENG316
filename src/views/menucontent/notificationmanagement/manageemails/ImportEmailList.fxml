@@ -20,7 +20,7 @@
       <HBox prefHeight="31.0" prefWidth="600.0" spacing="30.0">
          <children>
             <TextField fx:id="listFile" />
-            <Button fx:id="importList" mnemonicParsing="false" text="Import List" />
+            <Button fx:id="importList" mnemonicParsing="false" onAction="#importList" text="Import List" />
          </children>
          <padding>
             <Insets left="10.0" />

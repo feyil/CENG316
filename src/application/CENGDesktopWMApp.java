@@ -1,6 +1,7 @@
 package application;
 	
 import javafx.application.Application;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import views.ComponentCommunicator;
 import views.container.ComponentContainerController;
@@ -35,6 +36,8 @@ public class CENGDesktopWMApp extends Application {
 			primaryStage.setResizable(false);
 			primaryStage.setScene(scene);
 			primaryStage.show();
+			
+		
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
