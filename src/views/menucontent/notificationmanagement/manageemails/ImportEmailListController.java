@@ -1,26 +1,24 @@
 package views.menucontent.notificationmanagement.manageemails;
 
 import java.io.File;
-import java.io.IOException;
+
 
 import application.CENGDesktopWMApp;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.VBox;
-import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.stage.Stage;
 import models.EmailModel;
+import views.menucontent.AbstractMenuContent;
 
-public class ImportEmailListController extends VBox {
+public class ImportEmailListController extends AbstractMenuContent {
 	
 	@FXML TextField listFile;
 	
 	public ImportEmailListController() {
-		loadFXML();
+		super("ImportEmailList.fxml");
 		
 	}
 
@@ -65,18 +63,6 @@ public class ImportEmailListController extends VBox {
 	
 	private String getListFile() {
 		return listFile.getText();
-	}
-
-	private void loadFXML() {
-		 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ImportEmailList.fxml"));
-		 fxmlLoader.setRoot(this);
-		 fxmlLoader.setController(this);
-
-		 try {
-			 	fxmlLoader.load();
-		} catch (IOException exception) {
-				throw new RuntimeException(exception);
-		}
 	}
 	
 }

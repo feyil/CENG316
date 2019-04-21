@@ -10,7 +10,6 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-
 <fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="183.0" prefWidth="600.0" spacing="10.0" type="VBox" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Label text="Edit Email Lists">
@@ -23,7 +22,7 @@
          <children>
             <ScrollPane prefHeight="100.0" prefWidth="317.0">
                <content>
-                  <VBox prefHeight="97.0" prefWidth="310.0" spacing="5.0">
+                  <VBox fx:id="emailList" prefHeight="97.0" prefWidth="310.0" spacing="5.0">
                      <children>
                         <CheckBox mnemonicParsing="false" prefHeight="17.0" prefWidth="131.0" text="CheckBox" />
                         <CheckBox mnemonicParsing="false" text="CheckBox" />
@@ -37,7 +36,7 @@
             <HBox alignment="TOP_RIGHT" prefHeight="54.0" prefWidth="245.0" spacing="10.0">
                <children>
                   <Button mnemonicParsing="false" text="Delete List" />
-                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="72.0" text="Add Email" />
+                  <Button mnemonicParsing="false" onAction="#addEmail" prefHeight="25.0" prefWidth="72.0" text="Add Email" />
                   <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="72.0" text="Search" />
                </children>
             </HBox>
