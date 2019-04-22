@@ -2,6 +2,7 @@ package views.menucontent.notificationmanagement.manageemails.popups.searchdelet
 
 import java.io.IOException;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
@@ -17,6 +18,12 @@ public class EmailEntryController extends HBox {
 	
 	public EmailEntryController()   {
 		loadFXML("EmailEntry.fxml");
+	}
+	
+	public void deleteEmail(ActionEvent event) {
+		System.out.println("Delete Email Clicked");
+		
+		setDisable(true);
 	}
 	
 	public int getEmailID() {
