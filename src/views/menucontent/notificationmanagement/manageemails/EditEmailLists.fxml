@@ -35,9 +35,9 @@
             </ScrollPane>
             <HBox alignment="TOP_RIGHT" prefHeight="54.0" prefWidth="245.0" spacing="10.0">
                <children>
-                  <Button mnemonicParsing="false" text="Delete List" />
+                  <Button mnemonicParsing="false" onAction="#deleteList" text="Delete List" />
                   <Button mnemonicParsing="false" onAction="#addEmail" prefHeight="25.0" prefWidth="72.0" text="Add Email" />
-                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="72.0" text="Search" />
+                  <Button mnemonicParsing="false" onAction="#searchDelete" prefHeight="25.0" prefWidth="72.0" text="Search" />
                </children>
             </HBox>
          </children>

@@ -4,9 +4,14 @@ import javafx.application.Application;
 import javafx.stage.Stage;
 import views.ComponentCommunicator;
 import views.container.ComponentContainerController;
+import views.menucontent.notificationmanagement.manageemails.popups.TestPopups;
+import views.menucontent.notificationmanagement.manageemails.popups.searchdeleteemail.SearchDeleteEmailPopupController;
 import views.menunavigation.AccordionMNController;
+import views.popup.AbstractInWindowPopupController;
+import views.popup.InWindowPopupManager;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.VBox;
 
 
 public class Starter extends Application {
@@ -21,7 +26,7 @@ public class Starter extends Application {
 									.setMenuCommunicator(new ComponentCommunicator())
 									.build();
 			
-			
+		
 			Scene scene = new Scene(container,960,480);
 			primaryStage.setTitle("CENG Desktop Website Management App (IZTECH)");
 			primaryStage.setResizable(false);

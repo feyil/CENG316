@@ -2,17 +2,46 @@ package views.menucontent.notificationmanagement.manageemails.popups.searchdelet
 
 import java.io.IOException;
 
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
-import views.menucontent.usermanagement.popups.users.UserEntryController;
 
 public class EmailEntryController extends HBox {
+	
+	@FXML private Label nameSurname;
+	@FXML private Label email;
+	@FXML private Label grade;
+	
+	private int emailID;
 	
 	public EmailEntryController()   {
 		loadFXML("EmailEntry.fxml");
 	}
 	
+	public int getEmailID() {
+		return emailID;
+	}
+
+	public EmailEntryController setNameSurname(String ns) {
+		nameSurname.setText(ns);
+		return this;
+	}
 	
+	public EmailEntryController setEmail(String mail) {
+		email.setText(mail);
+		return this;
+	}
+	
+	public EmailEntryController setGrade(String grd) {
+		grade.setText(grd);
+		return this;
+	}
+
+	public EmailEntryController setEmailID(int emailID) {
+		this.emailID = emailID;
+		return this;
+	}
 	
 	private EmailEntryController loadFXML(String fxmlFileName) {
 		 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(fxmlFileName));
