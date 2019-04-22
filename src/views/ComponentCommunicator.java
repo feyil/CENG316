@@ -52,10 +52,10 @@ public class ComponentCommunicator implements IMenuCommunicator {
 			
 			if(searchResult != null) {
 				menuContentList.add(searchResult);
-				this.currentSelection = menuContentID;
 			}
 		}
 		
+		this.currentSelection = menuContentID;
 		container.addComponent(searchResult, ContainerPosition.CENTER);
 	}
 	
