@@ -1,8 +1,10 @@
 package application;
 
+import models.UserModel;
 import views.ComponentCommunicator;
 import views.container.ComponentContainerController;
 import views.container.ContainerPosition;
+import views.login.LoginController;
 import views.menunavigation.AccordionMNController;
 import views.popup.AbstractInWindowPopupController;
 import views.popup.InWindowPopupManager;
@@ -18,6 +20,8 @@ public class CENGDesktopWMApp {
 		return instance;
 	}
 	
+	private Boolean loginRequired = false;
+	private UserModel loggedUser;
 	private ComponentContainerController container;
 	private AccordionMNController navigation;
 	private ComponentCommunicator communicator;
@@ -52,14 +56,39 @@ public class CENGDesktopWMApp {
 		communicator.reflesh();
 	}
 	
+	public CENGDesktopWMApp loginRequired() {
+		loginRequired = true;
+		return this;
+	}
+	
+	public void loginedAs(UserModel user) {
+		container.addComponent(null, ContainerPosition.CENTER);	
+		container.addComponent(navigation, ContainerPosition.LEFT);
+		
+		setLoggedUser(user);
+	}
+	
 	public ComponentContainerController build() {
 		communicator.setComponentContainerController(container);
 		navigation.setMenuCommunicator(communicator);
 		
-		container.addComponent(navigation, ContainerPosition.LEFT);
+		if(loginRequired) {
+			container.addComponent(new LoginController(), ContainerPosition.CENTER);
+		}
+		else {
+			container.addComponent(navigation, ContainerPosition.LEFT);
+		}
 		
 		initializePopupManager();
 		
 		return container;
+	}
+
+	public UserModel getLoggedUser() {
+		return loggedUser;
+	}
+
+	private void setLoggedUser(UserModel loggedUser) {
+		this.loggedUser = loggedUser;
 	}
 }

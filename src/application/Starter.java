@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.stage.Stage;
 import views.ComponentCommunicator;
 import views.container.ComponentContainerController;
+import views.login.LoginController;
 import views.menucontent.notificationmanagement.manageemails.popups.TestPopups;
 import views.menucontent.notificationmanagement.manageemails.popups.searchdeleteemail.SearchDeleteEmailPopupController;
 import views.menunavigation.AccordionMNController;
@@ -24,6 +25,7 @@ public class Starter extends Application {
 			Parent container = app.setContainer(new ComponentContainerController())
 									.setNavigation(new AccordionMNController())
 									.setMenuCommunicator(new ComponentCommunicator())
+									.loginRequired()
 									.build();
 			
 		
