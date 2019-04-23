@@ -19,11 +19,11 @@
          <children>
             <Label prefHeight="25.0" text="Course" textAlignment="RIGHT" />
             <ComboBox prefWidth="150.0" />
-            <Button mnemonicParsing="false" text="Schedule" />
+            <Button mnemonicParsing="false" onAction="#schedule" text="Schedule" />
          </children>
       </HBox>
       <VBox fx:id="schedule" prefHeight="200.0" prefWidth="100.0" />
-      <Button mnemonicParsing="false" prefWidth="65.0" text="Apply">
+      <Button mnemonicParsing="false" onAction="#apply" prefWidth="65.0" text="Apply">
          <VBox.margin>
             <Insets left="500.0" top="5.0" />
          </VBox.margin>
