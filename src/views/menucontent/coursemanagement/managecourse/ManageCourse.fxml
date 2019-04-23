@@ -10,7 +10,7 @@
       <VBox fx:id="courseTable" prefHeight="350.0" prefWidth="600.0" />
       <HBox alignment="CENTER_RIGHT" prefHeight="27.0" prefWidth="600.0">
          <children>
-            <Button mnemonicParsing="false" text="Add Course" />
+            <Button mnemonicParsing="false" onAction="#addCourse" text="Add Course" />
          </children>
          <padding>
             <Insets right="10.0" />
