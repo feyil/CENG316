@@ -2,8 +2,6 @@ package views.menucontent.notificationmanagement.manageemails.popups.addemail;
 
 import java.util.List;
 
-import com.sun.org.apache.xerces.internal.util.SynchronizedSymbolTable;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
