@@ -7,13 +7,12 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-
-<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="185.0" prefWidth="485.0" type="VBox" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="185.0" prefWidth="485.0" type="VBox" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
          <children>
             <Label text="Name &amp; Surname" />
-            <TextField prefHeight="25.0" prefWidth="290.0" />
+            <TextField fx:id="nameSurname" prefHeight="25.0" prefWidth="290.0" />
          </children>
          <VBox.margin>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
@@ -22,7 +21,7 @@
       <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
          <children>
             <Label prefWidth="95.0" text="Email" />
-            <TextField prefHeight="25.0" prefWidth="290.0" />
+            <TextField fx:id="email" prefHeight="25.0" prefWidth="290.0" />
          </children>
          <padding>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
@@ -31,7 +30,7 @@
       <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
          <children>
             <Label prefWidth="95.0" text="Grade" />
-            <TextField prefHeight="25.0" prefWidth="290.0" />
+            <TextField fx:id="grade" prefHeight="25.0" prefWidth="290.0" />
          </children>
          <padding>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
@@ -39,7 +38,7 @@
       </HBox>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="62.0" text="ADD" />
+            <Button mnemonicParsing="false" onAction="#add" prefHeight="25.0" prefWidth="62.0" text="ADD" />
          </children>
          <opaqueInsets>
             <Insets />

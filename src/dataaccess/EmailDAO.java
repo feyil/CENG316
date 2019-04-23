@@ -21,7 +21,8 @@ public class EmailDAO {
 		System.out.println("EmailModel related field accesed");
 		System.out.println("DB connection accesed");
 		System.out.println("Related SQL Command runned");
-		System.out.println("Status returned as boolean");;
+		System.out.println("Status returned as boolean");
+		
 		
 		return false;
 	}

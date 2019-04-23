@@ -1,6 +1,8 @@
 package views.menucontent.notificationmanagement.manageemails;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import application.CENGDesktopWMApp;
 import javafx.event.ActionEvent;
@@ -37,9 +39,15 @@ public class EditEmailListsController extends AbstractMenuContent {
 	public void addEmail(ActionEvent event) {
 		System.out.println("Add Email Clicked");
 		
+		AddEmailPopupController addEmailPopup = new AddEmailPopupController();
+		
+		addEmailPopup.setClickedGroups(getSelectedGroups());
+		
+	
+	
 		InWindowPopupManager.getInstance()
 								.setPopupTitle("Add Email")
-								.load(new AddEmailPopupController())
+								.load(addEmailPopup)
 								.show();
 		
 		// TODO proof of concept code snippet 
@@ -49,6 +57,19 @@ public class EditEmailListsController extends AbstractMenuContent {
 				System.out.println(a.getText());
 			}
 		}
+	}
+	
+	private List<String> getSelectedGroups(){
+		List<String> tmp = new ArrayList<String>();
+		
+		for(int i = 0; i < emailList.getChildren().size(); i++) {
+			CheckBox a = (CheckBox) emailList.getChildren().get(i);
+			if(a.isSelected()) {
+				tmp.add(a.getText());
+			}
+		}
+		
+		return tmp;
 	}
 	
 	public void searchDelete(ActionEvent event) {
