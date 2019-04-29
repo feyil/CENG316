@@ -5,16 +5,16 @@
 <?import javafx.scene.layout.HBox?>
 <?import org.controlsfx.control.ToggleSwitch?>
 
-<fx:root alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="583.0" spacing="40.0" type="HBox" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="583.0" spacing="40.0" type="HBox" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label prefWidth="75.0" text="CENG111" />
-      <Label text="Lecture Title 1" />
-      <Label prefWidth="75.0" text="Lecturer" />
+      <Label fx:id="courseCode" prefWidth="75.0" text="CENG111" />
+      <Label fx:id="courseTitle" text="Lecture Title 1" />
+      <Label fx:id="courseInstructor" prefWidth="75.0" text="Lecturer" />
       <HBox alignment="CENTER" prefHeight="8.0" prefWidth="200.0" spacing="15.0">
          <children>
             <ToggleSwitch />
             <Button mnemonicParsing="false" prefWidth="51.0" text="Edit" />
-            <Button mnemonicParsing="false" prefWidth="53.0" text="Delete" />
+            <Button mnemonicParsing="false" onAction="#deleteCourse" prefWidth="53.0" text="Delete" />
          </children>
       </HBox>
    </children>
