@@ -13,7 +13,7 @@
       <HBox alignment="CENTER" prefHeight="8.0" prefWidth="200.0" spacing="15.0">
          <children>
             <ToggleSwitch />
-            <Button mnemonicParsing="false" prefWidth="51.0" text="Edit" />
+            <Button mnemonicParsing="false" onAction="#editCourse" prefWidth="51.0" text="Edit" />
             <Button mnemonicParsing="false" onAction="#deleteCourse" prefWidth="53.0" text="Delete" />
          </children>
       </HBox>

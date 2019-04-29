@@ -22,6 +22,13 @@ public class CourseModel {
 		return false;
 	}
 	
+	public static Boolean editCourse(int courseID) {
+		System.out.println("Access CourseDAO object");
+		System.out.println("Call necessary method edit Method for CourseDAO");
+		CourseDAO.getInstance().editCourse(5);
+		return false;
+	}
+	
 	private int courseID;
 	private String courseCode;
 	private String courseTitle;

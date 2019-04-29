@@ -8,6 +8,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import models.CourseModel;
+import views.menucontent.coursemanagement.managecourse.popups.CoursePopupBuilder;
+import views.popup.InWindowPopupManager;
 
 public class CourseEntryController extends HBox {
 	
@@ -55,12 +57,28 @@ public class CourseEntryController extends HBox {
 		
 		System.out.println("call CourseModel static delete method with given courseID");
 		CourseModel.deleteCourse(5);
+	
 		
 		System.out.println("Disable the entry clicked");
 		setDisabled(true);
 		
 		
 	}
+	
+	public void editCourse(ActionEvent e) {
+		System.out.println("Edit course button clicked");
+		
+		System.out.println("call CourseModel static edit method with given courseID");
+		CourseModel.editCourse(5);
+		
+		System.out.println("Edit Course");
+		
+		InWindowPopupManager.getInstance()
+								.setPopupTitle("Edit Course")
+								.load(new CoursePopupBuilder().build())
+								.show();
+	}
+	
 	
 	private void loadFXML() {
 		 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("CourseEntry.fxml"));
