@@ -68,15 +68,26 @@ public class CourseEntryController extends HBox {
 	public void editCourse(ActionEvent e) {
 		System.out.println("Edit course button clicked");
 		
+		InWindowPopupManager.getInstance()
+							.setPopupTitle("Edit Course")
+							.load(new CoursePopupBuilder().build())
+							.show();
+		
 		System.out.println("call CourseModel static edit method with given courseID");
 		CourseModel.editCourse(5);
+
+		System.out.println("Course Model Template Created");
 		
-		System.out.println("Edit Course");
+		System.out.println("CM course code set");
+		System.out.println("CM course title set");
+		System.out.println("CM prerequisite set");
+		System.out.println("CM course summary set");
+		System.out.println("CM course topics set");
+		System.out.println("CM instructor set");
+		System.out.println("CM assistant set");
+		System.out.println("CourseModel ready to go");
+
 		
-		InWindowPopupManager.getInstance()
-								.setPopupTitle("Edit Course")
-								.load(new CoursePopupBuilder().build())
-								.show();
 	}
 	
 	
