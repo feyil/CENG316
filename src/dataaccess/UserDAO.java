@@ -42,4 +42,14 @@ public class UserDAO {
 		return false;
 	}
 
+	public UserModel login(String userEmail, String hashedPassword) {
+		System.out.println("Make the needed SQL calls to find matching UserModel");
+		System.out.println("Return if UserModel found or return null to indicate failure");
+		
+		if(userEmail.equals("app@ceng.com") && hashedPassword.equals("123456")) {
+			return new UserModel();
+		}
+		
+		return null;
+	}
 }

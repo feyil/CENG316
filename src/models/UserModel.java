@@ -22,6 +22,14 @@ public class UserModel {
 		return false;
 	}
 	
+	public static UserModel login(String userEmail, String hashedPassword) {
+		System.out.println("Acces UserDAO object");
+		System.out.println("Call login for UserDAO");
+		UserModel loginedAs = UserDAO.getInstance().login(userEmail, hashedPassword);
+		
+		return loginedAs;
+	}
+	
 	private String userID;
 	private String userEmail;
 	private String userName;

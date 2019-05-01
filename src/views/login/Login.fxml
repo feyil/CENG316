@@ -19,8 +19,9 @@
             <Insets bottom="20.0" />
          </VBox.margin>
       </ImageView>
+      <Label fx:id="failureDisplay" prefHeight="17.0" prefWidth="255.0" textAlignment="CENTER" textFill="RED" />
       <Label text="Email" />
-      <TextField>
+      <TextField fx:id="userEmail">
          <VBox.margin>
             <Insets left="350.0" right="350.0" />
          </VBox.margin>
@@ -30,7 +31,7 @@
             <Insets top="5.0" />
          </VBox.margin>
       </Label>
-      <PasswordField>
+      <PasswordField fx:id="userPassword">
          <VBox.margin>
             <Insets left="350.0" right="350.0" />
          </VBox.margin>
