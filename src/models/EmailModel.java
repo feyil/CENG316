@@ -1,5 +1,6 @@
 package models;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import dataaccess.EmailDAO;
@@ -26,12 +27,12 @@ public class EmailModel {
 		private String nameSurname;
 		private String email;
 		private String grade;
-		private String emailGroup;
+		private List<String> emailGroup;
 		
 		public EmailModel() {
-			
+			emailGroup = new ArrayList<String>();
 		}
-
+		
 		public Boolean push() {
 			System.out.println("EmailDAO instance accesed");
 			System.out.println("Push method called for EmailDAO");
@@ -72,12 +73,8 @@ public class EmailModel {
 			this.grade = grade;
 		}
 
-		public String getEmailGroup() {
+		public List<String> getEmailGroup() {
 			return emailGroup;
-		}
-
-		public void setEmailGroup(String emailGroup) {
-			this.emailGroup = emailGroup;
 		}
 		
 }

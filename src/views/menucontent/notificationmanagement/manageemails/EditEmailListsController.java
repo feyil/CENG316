@@ -61,22 +61,16 @@ public class EditEmailListsController extends AbstractMenuContent {
 	public void addEmail(ActionEvent event) {
 		System.out.println("Add Email Clicked");
 		
+		System.out.println("AddEmail Popup Created");
 		AddEmailPopupController addEmailPopup = new AddEmailPopupController();
-		
+		System.out.println("Popup Notified about selected groups");
 		addEmailPopup.setClickedGroups(getSelectedGroups());
 		
+		System.out.println("InWindowPopupManager Accesed Popup intialized");
 		InWindowPopupManager.getInstance()
 								.setPopupTitle("Add Email")
 								.load(addEmailPopup)
 								.show();
-		
-		// TODO proof of concept code snippet 
-		for(int i = 0; i < emailList.getChildren().size(); i++) {
-			CheckBox a = (CheckBox) emailList.getChildren().get(i);
-			if(a.isSelected()) {
-				System.out.println(a.getText());
-			}
-		}
 	}
 	
 	private List<String> getSelectedGroups(){

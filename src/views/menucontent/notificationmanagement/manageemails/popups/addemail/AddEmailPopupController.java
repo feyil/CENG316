@@ -1,5 +1,6 @@
 package views.menucontent.notificationmanagement.manageemails.popups.addemail;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javafx.event.ActionEvent;
@@ -27,7 +28,7 @@ public class AddEmailPopupController extends AbstractPopup {
 		emailModel.setNameSurname(nameSurname.getText());
 		emailModel.setEmail(email.getText());
 		emailModel.setGrade(grade.getText());
-		emailModel.setEmailGroup(groupList.get(0));
+		emailModel.getEmailGroup().add(groupList.get(0));
 		System.out.println("email model is ready to go.");
 		System.out.println("email model pushed.");
 		emailModel.push();

@@ -54,7 +54,7 @@ public class ImportEmailListController extends AbstractMenuContent {
 		System.out.println("Push each emailModel to the storage");
 		
 		EmailModel emailModel = new EmailModel();
-		emailModel.setEmailGroup(selectedFile.getName());
+		emailModel.getEmailGroup().add(selectedFile.getName());
 		emailModel.push();
 	}
 	
