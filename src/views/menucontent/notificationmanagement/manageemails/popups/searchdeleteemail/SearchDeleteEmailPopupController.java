@@ -1,5 +1,7 @@
 package views.menucontent.notificationmanagement.manageemails.popups.searchdeleteemail;
 
+import java.util.List;
+
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.layout.VBox;
@@ -10,6 +12,8 @@ public class SearchDeleteEmailPopupController extends AbstractPopup {
 	
 	@FXML private VBox emailTable;
 	
+	private List<String> groupList;
+	
 	public SearchDeleteEmailPopupController() {
 		super("SearchDeleteEmail.fxml");
 	}
@@ -18,5 +22,10 @@ public class SearchDeleteEmailPopupController extends AbstractPopup {
 		emailTable.getChildren().add(item);
 		return this;
 	}
-
+	
+	public SearchDeleteEmailPopupController setSelectedGroups(List<String> groups) {
+		groupList = groups;
+		return this;
+	}
+	
 }

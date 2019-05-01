@@ -44,7 +44,22 @@ public class EmailDAO {
 	public Boolean deleteEmailList(String listName)  {
 		System.out.println("Make neccessarily data delete query and delete list from persistence storage");
 		System.out.println("Return status of the opeartion as boolean");
-	
+		
 		return false;
+	}
+	
+	public List<EmailModel> getModels(List<String> groupList) {
+		List<EmailModel> models = new ArrayList<EmailModel>();
+		System.out.println("Make neccessairly data query to collect all EmailModels(GroupList) in a List<EmailModel>");
+		
+		EmailModel tmp = new EmailModel();
+		tmp.setEmailID(1);
+		tmp.setNameSurname("Furkan Emre YILMAZ");
+		tmp.setGrade("3");
+		tmp.setEmail("furkan54emre@gmail.com");
+		
+		models.add(tmp);
+		
+		return models;
 	}
 }

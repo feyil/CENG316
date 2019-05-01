@@ -1,45 +1,44 @@
 package views.menucontent.notificationmanagement.manageemails.popups.searchdeleteemail;
 
+import java.util.List;
+
+import models.EmailModel;
+
 public class SearchDeleteEmailPopupBuilder {
 	
+	private SearchDeleteEmailPopupController instance;
+	private List<String> groupList;
+	
 	public SearchDeleteEmailPopupBuilder() {
-		
+		instance = new SearchDeleteEmailPopupController();
 	}
 	
 	public SearchDeleteEmailPopupController build() {
-		EmailEntryController a = new EmailEntryController();
-		a.setNameSurname("a")
-			.setEmail("abc@cdf")
-			.setGrade("3");
+		System.out.println("Call EmailModel static getModels method given groupList");
+		List<EmailModel> models = EmailModel.getModels(groupList);
+		System.out.println("All EmailModels obtained");
 		
-		SearchDeleteEmailPopupController container = new SearchDeleteEmailPopupController();
-		container.addItem(a);
-		for(int i = 0; i < 10; i++) {
-			container.addItem(new EmailEntryController());
+		System.out.println("Foeach item of models List create EmailListEntry");
+		System.out.println("Set neccesarily field of EmailEntry");
+		System.out.println("Add entry to popup instance");
+		
+		for(int i = 0; i < models.size(); i++) {
+			EmailEntryController tmp = new EmailEntryController();
+			
+			tmp.setEmailID(models.get(i).getEmailID())
+					.setEmail(models.get(i).getEmail())
+					.setGrade(models.get(i).getGrade());
+			
+			instance.addItem(tmp);
 		}
-		return container;
+	
+		return instance;
 	}
-
+	
+	public SearchDeleteEmailPopupBuilder setSelectedGroups(List<String> groups) {
+		instance.setSelectedGroups(groups);
+		groupList = groups;
+		return this;
+	}
 }
 
-/* Reference for logic
-UsersPopupController popup = new UsersPopupController();
-System.out.println("Create UserPopupsController object");
-
-System.out.println("get all the UserModel from database how is below:");
-System.out.println("calls UserModel static method getModels for getting models");
-UserModel.getModels();
-
-System.out.println("Create userEntry for each model");
-System.out.println("set userID for each userEntry");
-UserEntryController entry = new UserEntryController();
-entry.setUserID(5);
-
-System.out.println("Add each created userEntry to UserPopupController table");
-popup.addItem(entry);
-
-System.out.println("Return UserPopupController as final");
-
-return popup;
-
-*/

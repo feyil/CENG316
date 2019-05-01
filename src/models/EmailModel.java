@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import dataaccess.EmailDAO;
+import dataaccess.UserDAO;
 
 public class EmailModel {
 	
@@ -21,6 +22,15 @@ public class EmailModel {
 			Boolean status = EmailDAO.getInstance().deleteEmailList(listName);
 		
 			return status;
+		}
+		
+		public static List<EmailModel> getModels(List<String> groupList) {
+			System.out.println("Access DAO Object");
+			System.out.println("Call getModels method");
+			List<EmailModel> models = EmailDAO.getInstance().getModels(groupList);
+			System.out.println("Return getted List<EmailModel>");
+			
+			return models;
 		}
 	
 		private int emailID;

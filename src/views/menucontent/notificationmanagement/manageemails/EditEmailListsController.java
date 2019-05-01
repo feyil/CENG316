@@ -15,6 +15,7 @@ import models.EmailModel;
 import views.menucontent.AbstractMenuContent;
 import views.menucontent.notificationmanagement.manageemails.popups.addemail.AddEmailPopupController;
 import views.menucontent.notificationmanagement.manageemails.popups.searchdeleteemail.SearchDeleteEmailPopupBuilder;
+import views.menucontent.notificationmanagement.manageemails.popups.searchdeleteemail.SearchDeleteEmailPopupController;
 import views.popup.InWindowPopupManager;
 
 public class EditEmailListsController extends AbstractMenuContent { 
@@ -89,9 +90,14 @@ public class EditEmailListsController extends AbstractMenuContent {
 	public void searchDelete(ActionEvent event) {
 		System.out.println("Search Clicked");
 		
+		SearchDeleteEmailPopupBuilder popupBuilder = new SearchDeleteEmailPopupBuilder();
+		System.out.println("Popup Notified about selected groups");
+		popupBuilder.setSelectedGroups(getSelectedGroups());
+		
+		System.out.println("InWindowPopupManager accesed and popup intialized");
 		InWindowPopupManager.getInstance()
 								.setPopupTitle("Search & Delete Email")
-								.load(new SearchDeleteEmailPopupBuilder().build())
+								.load(popupBuilder.build())
 								.show();
 	}
 	
