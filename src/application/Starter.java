@@ -10,6 +10,7 @@ import views.menucontent.notificationmanagement.manageemails.popups.searchdelete
 import views.menunavigation.AccordionMNController;
 import views.popup.AbstractInWindowPopupController;
 import views.popup.InWindowPopupManager;
+import views.statusbar.StatusBarController;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.VBox;
@@ -25,6 +26,7 @@ public class Starter extends Application {
 			Parent container = app.setContainer(new ComponentContainerController())
 									.setNavigation(new AccordionMNController())
 									.setMenuCommunicator(new ComponentCommunicator())
+									.setStatusBar(new StatusBarController())
 									.loginRequired()
 									.build();
 			

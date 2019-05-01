@@ -8,6 +8,7 @@ import views.login.LoginController;
 import views.menunavigation.AccordionMNController;
 import views.popup.AbstractInWindowPopupController;
 import views.popup.InWindowPopupManager;
+import views.statusbar.StatusBarController;
 
 public class CENGDesktopWMApp {
 	
@@ -25,6 +26,7 @@ public class CENGDesktopWMApp {
 	private ComponentContainerController container;
 	private AccordionMNController navigation;
 	private ComponentCommunicator communicator;
+	private StatusBarController statusBar;
 
 	private CENGDesktopWMApp() {
 		
@@ -52,6 +54,11 @@ public class CENGDesktopWMApp {
 		return this;
 	}
 	
+	public CENGDesktopWMApp setStatusBar(StatusBarController statusBar) {
+		this.statusBar = statusBar;
+		return this;
+	}
+	
 	public void reflesh() {
 		communicator.reflesh();
 	}
@@ -64,6 +71,7 @@ public class CENGDesktopWMApp {
 	public void loginedAs(UserModel user) {
 		container.addComponent(null, ContainerPosition.CENTER);	
 		container.addComponent(navigation, ContainerPosition.LEFT);
+		container.addComponent(statusBar, ContainerPosition.TOP);
 		
 		setLoggedUser(user);
 	}
@@ -77,6 +85,7 @@ public class CENGDesktopWMApp {
 		}
 		else {
 			container.addComponent(navigation, ContainerPosition.LEFT);
+			container.addComponent(statusBar, ContainerPosition.TOP);
 		}
 		
 		initializePopupManager();
