@@ -59,8 +59,9 @@ public class CENGDesktopWMApp {
 		return this;
 	}
 	
-	public void reflesh() {
+	public CENGDesktopWMApp reflesh() {
 		communicator.reflesh();
+		return this;
 	}
 	
 	public CENGDesktopWMApp loginRequired() {
@@ -68,12 +69,29 @@ public class CENGDesktopWMApp {
 		return this;
 	}
 	
-	public void loginedAs(UserModel user) {
+	public CENGDesktopWMApp loginedAs(UserModel user) {
 		container.addComponent(null, ContainerPosition.CENTER);	
 		container.addComponent(navigation, ContainerPosition.LEFT);
 		container.addComponent(statusBar, ContainerPosition.TOP);
 		
 		setLoggedUser(user);
+		return this;
+	}
+	
+	private CENGDesktopWMApp login() {
+		container.addComponent(new LoginController(), ContainerPosition.CENTER);
+		return this;
+	}
+	
+	public CENGDesktopWMApp logout() {
+		System.out.println("App State Cleared");
+		container.reset();
+		loggedUser = null;
+		
+		System.out.println("Private login method called");
+		login();
+	
+		return this;
 	}
 	
 	public ComponentContainerController build() {
@@ -81,7 +99,7 @@ public class CENGDesktopWMApp {
 		navigation.setMenuCommunicator(communicator);
 		
 		if(loginRequired) {
-			container.addComponent(new LoginController(), ContainerPosition.CENTER);
+			login();
 		}
 		else {
 			container.addComponent(navigation, ContainerPosition.LEFT);

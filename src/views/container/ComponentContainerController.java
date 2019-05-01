@@ -44,6 +44,16 @@ public class ComponentContainerController extends StackPane {
 		
 	}
 	
+	public ComponentContainerController reset() {
+		componentContainer.setCenter(null);
+		componentContainer.setTop(null);
+		componentContainer.setBottom(null);
+		componentContainer.setLeft(null);
+		componentContainer.setRight(null);
+		
+		return this;
+	}
+	
 	private ComponentContainerController loadFXML() {
 		 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ComponentContainer.fxml"));
 		 fxmlLoader.setRoot(this);

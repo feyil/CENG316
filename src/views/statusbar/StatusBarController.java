@@ -2,6 +2,7 @@ package views.statusbar;
 
 import java.io.IOException;
 
+import application.CENGDesktopWMApp;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.HBox;
@@ -14,6 +15,11 @@ public class StatusBarController extends HBox {
 
 	public void logout(ActionEvent event) {
 		System.out.println("Logout Clicked");
+		
+		System.out.println("CENGDektopWMApp instance accessed and logout method called");
+		CENGDesktopWMApp.getInstance()
+							.logout();
+		System.out.println("Logout Successfull");
 	}
 	
 	public void publish(ActionEvent event) {
