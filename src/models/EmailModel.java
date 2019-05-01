@@ -13,6 +13,14 @@ public class EmailModel {
 			System.out.println("Finded email lists returned");
 			return emailLists;
 		}
+		
+		public static Boolean deleteEmailList(String listName) {
+			System.out.println("Access EmailDAO object");
+			System.out.println("Call EmailDAO object deleteEmailList method");
+			Boolean status = EmailDAO.getInstance().deleteEmailList(listName);
+		
+			return status;
+		}
 	
 		private int emailID;
 		private String nameSurname;

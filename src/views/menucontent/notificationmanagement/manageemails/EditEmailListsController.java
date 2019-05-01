@@ -30,13 +30,32 @@ public class EditEmailListsController extends AbstractMenuContent {
 	public void deleteList(ActionEvent event) {
 		System.out.println("Delete List clicked");
 		
+		System.out.println("findSelectedEmailList called");
+		List<String> selected = findSelectedEmaiLists();
+		
+		System.out.println("foreach selected list call EmailModel static deleteEmailLists with given name parameter");
+		for(int i = 0; i < selected.size(); i++) {
+			Boolean status = EmailModel.deleteEmailList(selected.get(i));
+		}
+		System.out.println("Declare failure or success");
+		System.out.println("Email List Delete Successfully");
+	}
+	
+	private List<String> findSelectedEmaiLists() {
+		List<String> selectedEmailLists = new ArrayList<String>();
+		
 		for(int i = 0; i < emailList.getChildren().size(); i++) {
-			CheckBox a = (CheckBox) emailList.getChildren().get(i);
-			if(a.isSelected()) {
-				System.out.println(a.getText());
-				a.setDisable(true);
+			CheckBox selected = (CheckBox) emailList.getChildren().get(i);
+			if(selected.isSelected()) {
+				//System.out.println(a.getText());
+				selectedEmailLists.add(selected.getText());
+				
+				System.out.println("Disable Selected List");
+				selected.setDisable(true);
 			}
 		}
+		System.out.println("Return selected email lists as List<String>");
+		return selectedEmailLists;
 	}
 	
 	public void addEmail(ActionEvent event) {
@@ -46,8 +65,6 @@ public class EditEmailListsController extends AbstractMenuContent {
 		
 		addEmailPopup.setClickedGroups(getSelectedGroups());
 		
-	
-	
 		InWindowPopupManager.getInstance()
 								.setPopupTitle("Add Email")
 								.load(addEmailPopup)
@@ -97,8 +114,6 @@ public class EditEmailListsController extends AbstractMenuContent {
 			
 			this.emailList.getChildren().add(checkBox);
 		}
-		
-		
 	}
 	
 }

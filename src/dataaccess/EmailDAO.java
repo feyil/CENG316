@@ -39,5 +39,12 @@ public class EmailDAO {
 		System.out.println("List filled and returned");
 		
 		return emailLists;
-	}	
+	}
+	
+	public Boolean deleteEmailList(String listName)  {
+		System.out.println("Make neccessarily data delete query and delete list from persistence storage");
+		System.out.println("Return status of the opeartion as boolean");
+	
+		return false;
+	}
 }
