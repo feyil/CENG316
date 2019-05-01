@@ -2,7 +2,6 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.HBox?>
@@ -23,10 +22,6 @@
             <ScrollPane prefHeight="100.0" prefWidth="317.0">
                <content>
                   <VBox fx:id="emailList" prefHeight="97.0" prefWidth="310.0" spacing="5.0">
-                     <children>
-                        <CheckBox mnemonicParsing="false" prefHeight="17.0" prefWidth="131.0" text="CheckBox" />
-                        <CheckBox mnemonicParsing="false" text="CheckBox" />
-                     </children>
                      <padding>
                         <Insets left="10.0" top="10.0" />
                      </padding>

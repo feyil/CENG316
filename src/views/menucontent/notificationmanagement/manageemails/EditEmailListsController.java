@@ -11,6 +11,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.VBox;
+import models.EmailModel;
 import views.menucontent.AbstractMenuContent;
 import views.menucontent.notificationmanagement.manageemails.popups.addemail.AddEmailPopupController;
 import views.menucontent.notificationmanagement.manageemails.popups.searchdeleteemail.SearchDeleteEmailPopupBuilder;
@@ -22,6 +23,8 @@ public class EditEmailListsController extends AbstractMenuContent {
 	
 	public EditEmailListsController() {
 		super("EditEmailLists.fxml");
+		System.out.println("Display EmailList called");
+		displayEmailLists();
 	}
 	
 	public void deleteList(ActionEvent event) {
@@ -80,4 +83,22 @@ public class EditEmailListsController extends AbstractMenuContent {
 								.load(new SearchDeleteEmailPopupBuilder().build())
 								.show();
 	}
+	
+	private void displayEmailLists() {
+		System.out.println("EmailModel static getEmailLists method called");
+		List<String> emailList = EmailModel.getEmailLists();
+		
+		System.out.println("EmailList obtained");
+		
+		System.out.println("For each item of the list a checkbox added to lists table with name setted as item of list");
+		for(int i = 0; i < emailList.size(); i++) {
+			CheckBox checkBox = new CheckBox();
+			checkBox.setText(emailList.get(i));
+			
+			this.emailList.getChildren().add(checkBox);
+		}
+		
+		
+	}
+	
 }

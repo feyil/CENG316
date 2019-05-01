@@ -1,5 +1,8 @@
 package dataaccess;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import models.EmailModel;
 
 public class EmailDAO {
@@ -26,6 +29,15 @@ public class EmailDAO {
 		
 		return false;
 	}
-
 	
+	public List<String> getEmailLists() {
+		System.out.println("Necessary data query made to find all emailLists");
+		List<String> emailLists = new ArrayList<String>();
+		emailLists.add("Junior");
+		emailLists.add("Senior");
+		emailLists.add("Sophomore");
+		System.out.println("List filled and returned");
+		
+		return emailLists;
+	}	
 }

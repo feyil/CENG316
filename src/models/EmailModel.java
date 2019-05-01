@@ -1,8 +1,18 @@
 package models;
 
+import java.util.List;
+
 import dataaccess.EmailDAO;
 
 public class EmailModel {
+	
+		public static List<String> getEmailLists() {
+			System.out.println("EmailDAO object accesed getEmailLists method called");
+			List<String> emailLists = EmailDAO.getInstance().getEmailLists();
+			
+			System.out.println("Finded email lists returned");
+			return emailLists;
+		}
 	
 		private int emailID;
 		private String nameSurname;

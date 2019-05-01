@@ -28,7 +28,8 @@ public class ImportEmailListController extends AbstractMenuContent {
 		File selectedList = openFileChooser();
 		System.out.println("Parse the readed file and store somewhere(db or local file system)");
 		parse(selectedList);
-
+		
+		System.out.println("App refleshed");
 		CENGDesktopWMApp.getInstance().reflesh();
 	}
 	
