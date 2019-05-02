@@ -5,7 +5,10 @@ import java.util.List;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import models.CourseModel;
 import views.menucontent.AbstractMenuContent;
@@ -19,14 +22,18 @@ public class ScheduleCoursesController extends AbstractMenuContent {
 	@FXML private ComboBox<Integer> yearComboBox;
 	@FXML private ComboBox<String> courseComboBox;
 	
+	private ScheduleController scheduleTable;
+
 	public ScheduleCoursesController() {
 		super("ScheduleCourses.fxml");
 		
 		setYearOption();
 	}
 	
-	public ScheduleCoursesController setSchedule(Node sch) {
+	public ScheduleCoursesController setSchedule(ScheduleController sch) {
+		schedule.getChildren().clear();
 		schedule.getChildren().add(sch);
+		scheduleTable = sch;
 		return this;
 	}
 	
@@ -76,6 +83,21 @@ public class ScheduleCoursesController extends AbstractMenuContent {
 	}
 	
 	private ScheduleCoursesController updateSchedule(int scheduleYear) {
+		System.out.println("Update Schedule Table");
+		
+		System.out.println("Call CourseModel static getByYear method to obtain possible courses");
+		List<CourseModel> models = CourseModel.getByYear(scheduleYear);
+		
+		System.out.println("Set Brand New Schedule");
+		setSchedule(new ScheduleController());
+		
+		System.out.println("Loop models positions and put them to correct position");
+		List<Label> monday = scheduleTable.getScheduleOf(ScheduleDay.MONDAY);
+		
+		for(int i = 0; i < models.size(); i++) {
+			String position = models.get(i).getPosition();
+			monday.get(0).setText(models.get(i).getCourseCode());
+		}
 		
 		return this;
 	}

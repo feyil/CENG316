@@ -95,6 +95,10 @@ public class CourseModel {
 		this.courseEnable = courseEnable;
 	}
 	
+	public String getPosition() {
+		return "";
+	}
+	
 	
 
 }

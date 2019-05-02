@@ -25,7 +25,7 @@
          </padding>
       </HBox>
       <Line endX="500.0" startX="-100.0" />
-      <HBox prefHeight="243.0" prefWidth="600.0">
+      <HBox fx:id="table" prefHeight="243.0" prefWidth="600.0">
          <children>
             <Line endX="-100.0" endY="242.0" startX="-100.0" />
             <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0">
