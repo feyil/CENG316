@@ -29,6 +29,13 @@ public class CourseModel {
 		return false;
 	}
 	
+	public static List<CourseModel> getByYear(int year) {
+		System.out.println("Access CourseDAO object and call getByYear method with given year");
+		List<CourseModel> models = CourseDAO.getInstance().getByYear(year);
+		System.out.println("Return Obtained Models");
+		return models;
+	}
+	
 	private int courseID;
 	private String courseCode;
 	private String courseTitle;

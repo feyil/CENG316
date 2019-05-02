@@ -1,5 +1,6 @@
 package dataaccess;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import models.CourseModel;
@@ -46,6 +47,26 @@ public class CourseDAO {
 		System.out.println("Make the needed SQL call edit the course from db");
 		System.out.println("Return result of the operation");
 		return false;
+	}
+	
+	public List<CourseModel> getByYear(int year) {
+		List<CourseModel> models = new ArrayList<CourseModel>();
+		System.out.println("With given year make necessarily SQL query and return as List<CourseModel>");
+		CourseModel model = new CourseModel();
+		
+		//TODO It is static only to show concept
+		if(year == 1) {
+			model.setCourseID(1);
+			model.setCourseCode("CENG111");
+			model.setCourseTitle("Intro to CENG");
+		}
+		else if(year == 2) {
+			model.setCourseID(1);
+			model.setCourseCode("CENG222");
+			model.setCourseTitle("Fundamentals of Programming");
+		}
+		models.add(model);
+		return models;
 	}
 
 }

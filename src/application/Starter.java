@@ -27,7 +27,7 @@ public class Starter extends Application {
 									.setNavigation(new AccordionMNController())
 									.setMenuCommunicator(new ComponentCommunicator())
 									.setStatusBar(new StatusBarController())
-									.loginRequired()
+						//			.loginRequired()
 									.build();
 			
 		

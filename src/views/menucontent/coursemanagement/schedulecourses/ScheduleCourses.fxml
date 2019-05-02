@@ -12,13 +12,13 @@
       <HBox prefHeight="33.0" prefWidth="600.0" spacing="32.0">
          <children>
             <Label prefHeight="25.0" text="Year" textAlignment="JUSTIFY" />
-            <ComboBox prefWidth="150.0" />
+            <ComboBox fx:id="yearComboBox" onAction="#yearOptionChanged" prefWidth="150.0" />
          </children>
       </HBox>
       <HBox prefHeight="33.0" prefWidth="600.0" spacing="20.0">
          <children>
             <Label prefHeight="25.0" text="Course" textAlignment="RIGHT" />
-            <ComboBox prefWidth="150.0" />
+            <ComboBox fx:id="courseComboBox" prefWidth="150.0" />
             <Button mnemonicParsing="false" onAction="#schedule" text="Schedule" />
          </children>
       </HBox>
