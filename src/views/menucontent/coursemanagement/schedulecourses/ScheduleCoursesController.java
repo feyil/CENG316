@@ -43,16 +43,26 @@ public class ScheduleCoursesController extends AbstractMenuContent {
 		System.out.println("Apply Clicked");
 	}
 	
-	public ScheduleCoursesController setYearOption() {
+	private ScheduleCoursesController setYearOption() {
 		yearComboBox.getItems().addAll(1, 2, 3, 4);
 		return this;
 	}
 	
 	public void yearOptionChanged(ActionEvent event) {
+		int yearOption = yearComboBox.getValue();
+		
+		System.out.println("Update Course Option Called");
+		updateCourseOptions(yearOption);
+
+		System.out.println("Update Schedule Called");
+		updateSchedule(yearOption);	
+	}
+	
+	private ScheduleCoursesController updateCourseOptions(int courseYear) {
 		System.out.println("Update Possible Courses");
 		
 		System.out.println("Call CourseModel static getByYear method to obtain possible courses");
-		List<CourseModel> models = CourseModel.getByYear(yearComboBox.getValue());
+		List<CourseModel> models = CourseModel.getByYear(courseYear);
 		
 		System.out.println("Clear the ComboBox");
 		courseComboBox.getItems().clear();
@@ -62,6 +72,11 @@ public class ScheduleCoursesController extends AbstractMenuContent {
 			courseComboBox.getItems().add(models.get(i).getCourseCode());
 		}
 		
+		return this;
 	}
 	
+	private ScheduleCoursesController updateSchedule(int scheduleYear) {
+		
+		return this;
+	}
 }
