@@ -39,7 +39,7 @@ public class LoginController extends AbstractMenuContent {
 		}
 	}
 	
-	public String hash(String password) {
+	private String hash(String password) {
 		System.out.println("hashed password returned");
 		
 		//TODO just for fun
