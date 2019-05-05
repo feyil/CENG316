@@ -36,11 +36,21 @@ public class CourseModel {
 		return models;
 	}
 	
+	public static CourseModel getByCourseCode(String courseCode) {
+		System.out.println("Access CourseDAO object and call getByCourseCode method with given year");
+		CourseModel model = CourseDAO.getInstance().getByCourseCode(courseCode);
+		System.out.println("Return Obtained Models");
+		
+		return model;
+	}
+	
 	private int courseID;
 	private String courseCode;
 	private String courseTitle;
 	private String courseInstructor;
+	private String position;
 	private boolean courseEnable;
+
 	
 	public CourseModel() {
 		
@@ -48,8 +58,8 @@ public class CourseModel {
 	
 	public Boolean push() {
 		
-		System.out.println("UserDAO object accessed");
-		System.out.println("User Model passed as parameter to push method of UserDAO");
+		System.out.println("CourseDAO object accessed");
+		System.out.println("Course Model passed as parameter to push method of CourseDAO");
 		
 		return CourseDAO.getInstance().push(this);
 	}
@@ -96,9 +106,11 @@ public class CourseModel {
 	}
 	
 	public String getPosition() {
-		return "";
+		return this.position;
 	}
 	
+	public void setPosition(String position) {
+		this.position = position;
+	}
 	
-
 }

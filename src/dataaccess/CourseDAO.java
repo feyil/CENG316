@@ -22,6 +22,7 @@ public class CourseDAO {
 	}
 	
 	public Boolean push(CourseModel courseModel) {
+		System.out.println("It checks ID if it exist edit if not create new one");
 		System.out.println("Course model related field accessed");
 		System.out.println("DB connection accessed");
 		System.out.println("Related SQL commands runned");
@@ -67,6 +68,14 @@ public class CourseDAO {
 		}
 		models.add(model);
 		return models;
+	}
+	
+	public CourseModel getByCourseCode(String courseCode) {
+		System.out.println("With given Course Code make neccssariyl Sql query and return a CourseModel");
+		CourseModel model = new CourseModel();
+		model.setPosition("f1");
+
+		return model;
 	}
 
 }

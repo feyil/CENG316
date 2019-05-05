@@ -24,6 +24,7 @@ public class StatusBarController extends HBox {
 	
 	public void publish(ActionEvent event) {
 		System.out.println("Publish Clicked");
+		CENGDesktopWMApp.getInstance().reflesh();
 	}
 	
 	private void loadFXML(String fxmlFileName) {

@@ -7,7 +7,7 @@ import javafx.scene.layout.Pane;
 import views.container.ComponentContainerController;
 import views.container.ContainerPosition;
 import views.menucontent.coursemanagement.managecourse.TestManageCourse;
-import views.menucontent.coursemanagement.schedulecourses.TestScheduleCourses;
+import views.menucontent.coursemanagement.schedulecourses.ScheduleCourseBuilder;
 import views.menucontent.notificationmanagement.announcement.TestAnnouncement;
 import views.menucontent.notificationmanagement.manageemails.TestManageEmails;
 import views.menucontent.usermanagement.UserManagementController;
@@ -43,7 +43,7 @@ public class ComponentCommunicator implements IMenuCommunicator {
 				searchResult = (Pane) new TestManageCourse().build();
 			}
 			else if(menuContentID.equals("scheduleCourse")) {
-				searchResult = (Pane) new TestScheduleCourses().build();
+				searchResult = (Pane) new ScheduleCourseBuilder().build();
 			}
 			else {
 				//TODO It can be exception

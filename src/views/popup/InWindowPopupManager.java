@@ -38,10 +38,12 @@ public class InWindowPopupManager extends AbstractInWindowPopupController {
 		//setBackground(null);
 	}
 	
+	@Override
 	public Boolean isActive() {
 		return active;
 	}
 	
+	@Override
 	public Boolean isLoaded() {
 		return loaded;
 	}

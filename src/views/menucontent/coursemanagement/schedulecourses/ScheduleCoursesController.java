@@ -39,11 +39,14 @@ public class ScheduleCoursesController extends AbstractMenuContent {
 	
 	public void schedule(ActionEvent event) {
 		System.out.println("Schedule Clicked");
-		
+				
 		InWindowPopupManager.getInstance()
 								.setPopupTitle("Schedule Course")
 								.load(new ScheduleCoursePopupBuilder().build())
 								.show();
+		
+		System.out.println("I dont how but sense the popup apply button clicked update the schedule");
+		
 	}
 	
 	public void apply(ActionEvent event) {
