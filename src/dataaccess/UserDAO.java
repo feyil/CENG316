@@ -1,6 +1,5 @@
 package dataaccess;
 
-import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -8,7 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import models.UserModel;
-import views.menucontent.usermanagement.UserManagementController;
 
 public class UserDAO {
 	
@@ -46,10 +44,7 @@ public class UserDAO {
 		}		
 	}
 	
-	public List<UserModel> getModels() {
-		System.out.println("Make the needed SQL calls get all models");
-		System.out.println("Wrap all models into a list and return it");
-		
+	public List<UserModel> getModels() {	
 		List<UserModel> userModelList = new ArrayList<UserModel>();
 		
 		Statement statement = DBBase.createStatement();
@@ -60,6 +55,7 @@ public class UserDAO {
 			
 			while(result.next()) {
 				UserModel userModel = new UserModel();
+				System.out.println(result.getString("ID"));
 				userModel.setUserID(result.getString("ID"));
 				userModel.setUserEmail(result.getString("UEMAIL"));
 				userModel.setUserType(result.getString("UTYPE"));
@@ -70,17 +66,23 @@ public class UserDAO {
 			}
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.out.println("SQL statement can not be executed. Loc: UserDAO:getModels");
 		}
 		
 		return userModelList;
 	}
 	
-	public Boolean deleteUser(int userID) {
-		System.out.println("Make the needed SQL call delete the user from db");
-		System.out.println("Return result of the operation");
-		return false;
+	public Boolean deleteUser(int userID) {		
+		Statement statement = DBBase.createStatement();
+		String sql = String.format("DELETE FROM USER WHERE ID=%1$s", userID);
+		
+		try {
+			statement.executeUpdate(sql);
+			return true;
+		} catch (SQLException e) {
+			System.out.println("SQL statement can not be executed. Loc: UserDAO:deleteUser");
+			return false;
+		}
 	}
 
 	public UserModel login(String userEmail, String hashedPassword) {

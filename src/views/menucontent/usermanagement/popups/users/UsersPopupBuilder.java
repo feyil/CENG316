@@ -16,7 +16,7 @@ public class UsersPopupBuilder {
 		List<UserModel> userModelList = UserModel.getModels();
 		for (UserModel userModel : userModelList) {
 			UserEntryController entry = new UserEntryController();
-			entry.setId(userModel.getUserID());
+			entry.setUserID(Integer.parseInt(userModel.getUserID()));
 			entry.setUserEmail(userModel.getUserEmail());
 			entry.setNameSurname(userModel.getUserName());
 			entry.setUserType(userModel.getUserType());

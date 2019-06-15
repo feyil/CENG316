@@ -11,9 +11,7 @@ public class UserModel {
 	}
 	
 	public static Boolean deleteUser(int userID) {
-		System.out.println("Access UserDAO object");
-		System.out.println("Call necessary method delete Method for UserDAO");
-		UserDAO.getInstance().deleteUser(5);
+		UserDAO.getInstance().deleteUser(userID);
 		return false;
 	}
 	

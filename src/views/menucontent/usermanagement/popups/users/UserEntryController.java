@@ -27,7 +27,6 @@ public class UserEntryController extends HBox {
 
 	public UserEntryController setUserID(int userID) {
 		this.userID = userID;
-		
 		return this;
 	}
 	
@@ -47,15 +46,9 @@ public class UserEntryController extends HBox {
 	}
 	
 	public void delete(ActionEvent e) {
-		System.out.println("Delete button clicked");
-		
-		System.out.println("call UserModel static delete method with given userID");
-		UserModel.deleteUser(5);
-		
-		System.out.println("Disable the entry clicked");
+		//TODO dont delete active user
+		UserModel.deleteUser(userID);
 		setDisabled(true);
-		
-		
 	}
  	
 	private UserEntryController loadFXML(String fxmlFileName) {
