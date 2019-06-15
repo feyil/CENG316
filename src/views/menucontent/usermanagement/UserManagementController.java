@@ -40,17 +40,11 @@ public class UserManagementController extends AbstractMenuContent {
 	
 	@FXML
 	public void showUsers(ActionEvent clickedEvent) {
-		System.out.println("Show Users Clicked");
-		
-		System.out.println("By using user popup builder build user popup");
 		UsersPopupBuilder usersPopup = new UsersPopupBuilder();
 		UsersPopupController ct = usersPopup.build();
-		
-		System.out.println("Get Popup manager instance");
-		System.out.println("load the popup");
-		System.out.println("show the popup");
-	
+			
 		AbstractInWindowPopupController pm = InWindowPopupManager.getInstance();
+		pm.setPopupTitle("Show Users");
 		pm.load(ct);
 		pm.show();
 	}
@@ -71,6 +65,8 @@ public class UserManagementController extends AbstractMenuContent {
 		userModel.push();
 		
 		// TODO clear all field of the form
+		
+		// TODO give response with popup to the user
 	}
 	
 	private void setUserTypeOption() {

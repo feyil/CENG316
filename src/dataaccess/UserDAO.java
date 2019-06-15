@@ -1,8 +1,10 @@
 package dataaccess;
 
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
 
 import models.UserModel;
@@ -24,13 +26,7 @@ public class UserDAO {
 	
 	}
 	
-	public Boolean push(UserModel userModel) {
-		System.out.println("User model related field accessed");
-		System.out.println("DB connection accessed");
-		System.out.println("Related SQL commands runned");
-		System.out.println("Success status returned as boolean");
-		
-	
+	public Boolean push(UserModel userModel) {	
 		String email = userModel.getUserEmail();
 		String password = userModel.getUserPassword();
 		String type = userModel.getUserType();
@@ -45,8 +41,7 @@ public class UserDAO {
 			statement.executeUpdate(sql);
 			return true;
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.out.println("SQL statement can not be executed. Loc: UserDAO:push");
 			return false;
 		}		
 	}
@@ -55,7 +50,31 @@ public class UserDAO {
 		System.out.println("Make the needed SQL calls get all models");
 		System.out.println("Wrap all models into a list and return it");
 		
-		return null;
+		List<UserModel> userModelList = new ArrayList<UserModel>();
+		
+		Statement statement = DBBase.createStatement();
+		String sql = "SELECT * FROM USER";
+		
+		try {
+			ResultSet result = statement.executeQuery(sql);
+			
+			while(result.next()) {
+				UserModel userModel = new UserModel();
+				userModel.setUserID(result.getString("ID"));
+				userModel.setUserEmail(result.getString("UEMAIL"));
+				userModel.setUserType(result.getString("UTYPE"));
+				userModel.setUserName(result.getString("UNAMESURNAME"));
+				userModel.setUserTitle(result.getString("UTITLE"));
+				
+				userModelList.add(userModel);
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return userModelList;
 	}
 	
 	public Boolean deleteUser(int userID) {

@@ -6,13 +6,8 @@ import dataaccess.UserDAO;
 
 public class UserModel {
 	
-	public static List<UserModel> getModels() {
-		System.out.println("Access DAO Object");
-		System.out.println("Call getModels method");
-		UserDAO.getInstance().getModels();
-		System.out.println("Return getted List<UserModel>");
-		
-		return null;
+	public static List<UserModel> getModels() {	
+		return UserDAO.getInstance().getModels();
 	}
 	
 	public static Boolean deleteUser(int userID) {
