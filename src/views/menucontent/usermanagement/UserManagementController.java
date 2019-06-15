@@ -58,25 +58,18 @@ public class UserManagementController extends AbstractMenuContent {
 	
 	@FXML
 	public void createUser(ActionEvent clickedEvent) {
-		System.out.println("Create User Clicked");
-		
+		// TODO make validation
+	
 		UserModel userModel = new UserModel();
-		System.out.println("User Model Template Created");
 		
-		System.out.println("UM name setted");
-		System.out.println("UM title setted");
-		System.out.println("UM Type setted");
-		System.out.println("UM Email setted");
-		System.out.println("Password hashed and setted");
+		userModel.setUserEmail(email.getText());
+		userModel.setUserPassword(password.getText());
+		userModel.setUserType(userType.getValue());
+		userModel.setUserName(nameSurname.getText());
+		userModel.setUserTitle(title.getText());
 		
-		System.out.println("UserModel ready to go");
+		// TODO handle false return with popup
 		userModel.push();
-		System.out.println("UserModel pushed to the DB");
-		System.out.println("DB declare success or failure check it");
-		
-		System.out.println("User created successfully");
-		
-		
 	}
 	
 	private void setUserTypeOption() {

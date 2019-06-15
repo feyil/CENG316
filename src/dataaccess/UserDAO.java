@@ -1,8 +1,12 @@
 package dataaccess;
 
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.List;
 
 import models.UserModel;
+import views.menucontent.usermanagement.UserManagementController;
 
 public class UserDAO {
 	
@@ -26,7 +30,25 @@ public class UserDAO {
 		System.out.println("Related SQL commands runned");
 		System.out.println("Success status returned as boolean");
 		
-		return false;
+	
+		String email = userModel.getUserEmail();
+		String password = "asdasd";
+		String type = userModel.getUserType();
+		String name = userModel.getUserName();
+		String title = userModel.getUserTitle();
+		
+		Statement statement = DBBase.createStatement();
+		String sql = String.format("INSERT INTO USER(UEMAIL, UPASSWORD, UTYPE, UNAMESURNAME, UTITLE)"
+				+ "VALUES('%1$s', '%2$s', '%3$s', '%4$s', '%5$s');", email, password, type, name, title);
+	
+		try {
+			statement.executeUpdate(sql);
+			return true;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return false;
+		}		
 	}
 	
 	public List<UserModel> getModels() {

@@ -35,17 +35,13 @@ public class UserModel {
 	private String userName;
 	private String userTitle;
 	private String userType;
+	private String userPassword;
 	
 	public UserModel() {
 		
 	}
 	
-	public Boolean push() {
-		System.out.println("UserDAO object accessed");
-
-		
-		System.out.println("User Model passed as parameter to push method of UserDAO");
-		
+	public Boolean push() {	
 		return UserDAO.getInstance().push(this);
 	}
 
@@ -87,6 +83,11 @@ public class UserModel {
 
 	public void setUserType(String userType) {
 		this.userType = userType;
+	}
+	
+	public void setUserPassword(String password) {
+		//TODO hash the password
+		this.userPassword = password;
 	}
 
 }
