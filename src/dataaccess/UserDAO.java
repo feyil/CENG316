@@ -32,7 +32,7 @@ public class UserDAO {
 		
 	
 		String email = userModel.getUserEmail();
-		String password = "asdasd";
+		String password = userModel.getUserPassword();
 		String type = userModel.getUserType();
 		String name = userModel.getUserName();
 		String title = userModel.getUserTitle();

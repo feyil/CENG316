@@ -35,7 +35,6 @@ public class UserManagementController extends AbstractMenuContent {
 	
 	public UserManagementController() {
 		super("UserManagement.fxml");
-		
 		setUserTypeOption();
 	}
 	
@@ -70,6 +69,8 @@ public class UserManagementController extends AbstractMenuContent {
 		
 		// TODO handle false return with popup
 		userModel.push();
+		
+		// TODO clear all field of the form
 	}
 	
 	private void setUserTypeOption() {

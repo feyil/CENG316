@@ -89,5 +89,9 @@ public class UserModel {
 		//TODO hash the password
 		this.userPassword = password;
 	}
+	
+	public String getUserPassword() {
+		return this.userPassword;
+	}
 
 }
