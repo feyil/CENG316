@@ -6,7 +6,6 @@ import javafx.animation.FadeTransition;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 import javafx.util.Duration;
 import views.ComponentCommunicator;
 import views.container.ComponentContainerController;
@@ -38,6 +37,7 @@ public class Starter extends Application {
 			loadSplashScreen(root, container);
 			
 			Scene scene = new Scene(root,960,480);
+			scene.getStylesheets().add("app.css");
 			primaryStage.setTitle("CENG Desktop Website Management App (IZTECH)");
 		
 			primaryStage.setResizable(false);

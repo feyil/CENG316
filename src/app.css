@@ -1,0 +1,21 @@
+.button {
+    -fx-background-color: #8c1515;
+    -fx-background-radius: 10;
+    -fx-background-insets: -1;
+    -fx-text-fill: white;
+}
+
+.label {
+	-fx-text-fill:rgb(140,21,21);
+}
+
+
+.titled-pane {
+	-fx-color: rgb(140,21,21); 
+    -fx-text-fill: white;
+    
+}
+
+.titled-pane > .title:hover {
+    -fx-color: lightgrey;
+}
