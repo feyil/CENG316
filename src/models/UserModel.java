@@ -2,6 +2,8 @@ package models;
 
 import java.util.List;
 
+import org.mindrot.jbcrypt.BCrypt;
+
 import dataaccess.UserDAO;
 
 public class UserModel {
@@ -79,7 +81,6 @@ public class UserModel {
 	}
 	
 	public void setUserPassword(String password) {
-		//TODO hash the password
 		this.userPassword = password;
 	}
 	

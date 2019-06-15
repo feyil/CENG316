@@ -6,6 +6,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.mindrot.jbcrypt.BCrypt;
+
 import models.UserModel;
 
 public class UserDAO {
@@ -26,7 +28,7 @@ public class UserDAO {
 	
 	public Boolean push(UserModel userModel) {	
 		String email = userModel.getUserEmail();
-		String password = userModel.getUserPassword();
+		String password = hash(userModel.getUserPassword());
 		String type = userModel.getUserType();
 		String name = userModel.getUserName();
 		String title = userModel.getUserTitle();
@@ -42,6 +44,15 @@ public class UserDAO {
 			System.out.println("SQL statement can not be executed. Loc: UserDAO:push");
 			return false;
 		}		
+	}
+	
+	public String hash(String value) {
+		int logRounds = 5;
+		return BCrypt.hashpw(value, BCrypt.gensalt(logRounds));
+	}
+	
+	public Boolean checkHash(String value, String hash) {
+		return BCrypt.checkpw(value, hash);
 	}
 	
 	public List<UserModel> getModels() {	
@@ -85,12 +96,31 @@ public class UserDAO {
 		}
 	}
 
-	public UserModel login(String userEmail, String hashedPassword) {
-		System.out.println("Make the needed SQL calls to find matching UserModel");
-		System.out.println("Return if UserModel found or return null to indicate failure");
+	public UserModel login(String userEmail, String password) {
+		// Return if UserModel found or return null to indicate failure
 		
-		if(userEmail.equals("app@ceng.com") && hashedPassword.equals("123456")) {
-			return new UserModel();
+		Statement statement = DBBase.createStatement();
+		String sql = String.format("SELECT * FROM USER WHERE UEMAIL='%1$s'", userEmail);
+		
+		try {
+			ResultSet result = statement.executeQuery(sql);
+			if(result.next()) {	
+				String hashedPassword = result.getString("UPASSWORD");
+				
+				if(checkHash(password, hashedPassword)) {
+					UserModel userModel = new UserModel();
+					
+					userModel.setUserID(result.getString("ID"));
+					userModel.setUserEmail(result.getString("UEMAIL"));
+					userModel.setUserType(result.getString("UTYPE"));
+					userModel.setUserName(result.getString("UNAMESURNAME"));
+					userModel.setUserTitle(result.getString("UTITLE"));
+					
+					return userModel;
+				}
+			}	
+		} catch (SQLException e) {	
+			e.printStackTrace();
 		}
 		
 		return null;
