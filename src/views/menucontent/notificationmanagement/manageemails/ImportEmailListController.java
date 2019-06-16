@@ -58,7 +58,7 @@ public class ImportEmailListController extends AbstractMenuContent {
 		try {
 			Scanner reader = new Scanner(selectedFile);
 			
-			String groupName = selectedFile.getName().split(".")[0];
+			String groupName = selectedFile.getName().split("\\.")[0];
 			
 			while(reader.hasNextLine()) {
 				String line = reader.nextLine();
@@ -82,8 +82,7 @@ public class ImportEmailListController extends AbstractMenuContent {
 			reader.close();
 			
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.out.println("File not found!");
 		}
 	}
 	

@@ -15,19 +15,16 @@ INSERT INTO USER(UEMAIL, UPASSWORD,UTYPE, UNAMESURNAME, UTITLE)
 VALUES ('app@ceng.com', '$2a$05$77azOIF/ZCDBVhIHPLZhseNg/H6nsMjcAIZ1NgAoV/YkN0GDo4N.e', 'Admin', 'App CENG', 'App');
 
 create table EMAIL_MEMBER(
-	ID int not null auto_increment,
+	EMAIL varchar(30),
     NAMESURNAME varchar(30) not null,
-    EMAIL varchar(30) not null unique,
     GRADE int not null,
-    primary key(ID));
+    primary key(EMAIL));
     
 create table EMAIL_MEMBER_GROUP(
-	ID int not null auto_increment,
-    MEMBER_ID int not null,
-    GROUP_ID int not null,
-    primary key(ID));
+    MEMBER_EMAIL varchar(30),
+    GROUP_NAME varchar(30),
+    primary key(MEMBER_EMAIL, GROUP_NAME));
     
 create table EMAIL_GROUP(
-	ID int not null auto_increment,
-    NAME varchar(30) not null unique,
-    primary key(ID));
+    NAME varchar(30),
+    primary key(NAME));

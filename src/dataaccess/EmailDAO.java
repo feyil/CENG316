@@ -1,5 +1,7 @@
 package dataaccess;
 
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,13 +22,58 @@ public class EmailDAO {
 		
 	}
 	
+	public void updateGroups(List<String> groupList, String email) {
+		Statement statement = DBBase.createStatement();
+		
+		for (String groupName : groupList) {
+			String sql = String.format("INSERT INTO EMAIL_GROUP(NAME) "
+					+ "VALUES('%1$s');", groupName);
+			
+			// It is not an clever implementation
+			try {
+				statement.executeUpdate(sql);
+			} catch (SQLException e) {
+				// Group already exist.
+			}
+		}
+		
+		for (String groupName  : groupList) {
+			String sql = String.format("INSERT INTO EMAIL_MEMBER_GROUP(MEMBER_EMAIL, GROUP_NAME)"
+					+ "VALUES('%1$s', '%2$s');", email, groupName);
+			
+			try {
+				statement.executeUpdate(sql);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
+	
 	public Boolean push(EmailModel emailModel) {
 		System.out.println("EmailModel related field accesed");
 		System.out.println("DB connection accesed");
 		System.out.println("Related SQL Command runned");
 		System.out.println("Status returned as boolean");
 		
+		String nameSurname = emailModel.getNameSurname();
+		String email = emailModel.getEmail();
+		String grade = emailModel.getGrade();
 		
+		List<String> groupList = emailModel.getEmailGroup();
+		updateGroups(groupList, email);
+		
+		Statement statement = DBBase.createStatement();
+		
+		String sql = String.format("INSERT INTO EMAIL_MEMBER(NAMESURNAME, EMAIL, GRADE)"
+				+ "VALUES('%1$s', '%2$s', %3$s);", nameSurname, email, grade);
+		
+		try {
+			statement.executeUpdate(sql);
+		} catch (SQLException e) {
+			// not an clever implementation but our case it will work fine.
+		}
+			
 		return false;
 	}
 	
