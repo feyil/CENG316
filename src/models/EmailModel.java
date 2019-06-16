@@ -44,11 +44,7 @@ public class EmailModel {
 		}
 		
 		public Boolean push() {
-			System.out.println("EmailDAO instance accesed");
-			System.out.println("Push method called for EmailDAO");
-			EmailDAO.getInstance().push(this);
-			
-			return false;
+			return EmailDAO.getInstance().push(this);
 		}
 		
 		public int getEmailID() {

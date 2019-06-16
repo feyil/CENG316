@@ -1,0 +1,6 @@
+Selin, selin@std.iyte.edu.tr, 2
+Kerim, kerim@std.iyte.edu.tr, 4
+Ada, ada@std.iyte.edu.tr, 1
+Asude, asude@std.iyte.edu.tr, 2
+Faruk, faruk@std.iyte.edu.tr, 1
+Ali, ali@std.iyte.edu.tr, 3

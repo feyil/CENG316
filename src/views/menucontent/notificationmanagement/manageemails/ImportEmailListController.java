@@ -1,7 +1,8 @@
 package views.menucontent.notificationmanagement.manageemails;
 
 import java.io.File;
-
+import java.io.FileNotFoundException;
+import java.util.Scanner;
 
 import application.CENGDesktopWMApp;
 import javafx.event.ActionEvent;
@@ -23,13 +24,12 @@ public class ImportEmailListController extends AbstractMenuContent {
 	}
 
 	public void importList(ActionEvent event) {
-		System.out.println("Import List Clicked");
-		System.out.println("Open File Chooser");
 		File selectedList = openFileChooser();
-		System.out.println("Parse the readed file and store somewhere(db or local file system)");
+		
+		// Parse the read file and store
 		parse(selectedList);
 		
-		System.out.println("App refleshed");
+		// Reflesh the app to sync db conent with views
 		CENGDesktopWMApp.getInstance().reflesh();
 	}
 	
@@ -48,22 +48,47 @@ public class ImportEmailListController extends AbstractMenuContent {
 	}
 	
 	private void parse(File selectedFile) {
-		System.out.println("Read each line in file and split it to nameSurname, email, grade, fields");
-		System.out.println("Get Filename as email groupName set it for all lines");
-		System.out.println("For each line create a emailModel set needed fields of it.");
-		System.out.println("Push each emailModel to the storage");
+		/*
+		 * Read each line in file and split it to nameSurname, email, grade, fields
+		 * Get Filename as email groupName set it for all lines
+		 * For each line create a emailModel set needed fields of it.
+		 * Push each emailModel to the storage
+		 */
 		
-		EmailModel emailModel = new EmailModel();
-		emailModel.getEmailGroup().add(selectedFile.getName());
-		emailModel.push();
+		try {
+			Scanner reader = new Scanner(selectedFile);
+			
+			String groupName = selectedFile.getName().split(".")[0];
+			
+			while(reader.hasNextLine()) {
+				String line = reader.nextLine();
+								
+				String[] splitedLine = line.split(",");
+				
+				String nameSurname = splitedLine[0];
+				String email = splitedLine[1];
+				String grade = splitedLine[2];
+				
+				EmailModel emailModel = new EmailModel();
+				
+				emailModel.setNameSurname(nameSurname);
+				emailModel.setEmail(email);
+				emailModel.setGrade(grade);
+				emailModel.getEmailGroup().add(groupName);
+				
+				emailModel.push();
+			}
+			
+			reader.close();
+			
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	private void setListFile(String text) {
 		listFile.setText(text);
 	}
-	
-	private String getListFile() {
-		return listFile.getText();
-	}
-	
+		
 }
