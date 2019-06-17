@@ -74,7 +74,6 @@ public class EmailDAO {
 	}
 	
 	public List<String> getEmailLists() {
-		System.out.println("Necessary data query made to find all emailLists");
 		List<String> emailLists = new ArrayList<String>();
 		
 		Statement statement = DBBase.createStatement();
@@ -98,7 +97,30 @@ public class EmailDAO {
 		System.out.println("Make neccessarily data delete query and delete list from persistence storage");
 		System.out.println("Return status of the opeartion as boolean");
 		
-		return false;
+		Statement statement = DBBase.createStatement();
+		String sql = String.format("SELECT MEMBER_EMAIL FROM EMAIL_MEMBER_GROUP WHERE GROUP_NAME='%1$s'", listName);
+		
+		try {
+			ResultSet result = statement.executeQuery(sql);
+			
+			Statement deleteEmailSt = DBBase.createStatement();
+			while(result.next()) {
+				String deleteEmailSQL = String.format("DELETE FROM EMAIL_MEMBER WHERE EMAIL='%1$s'", result.getString("MEMBER_EMAIL"));
+				
+				deleteEmailSt.executeUpdate(deleteEmailSQL);
+			}
+			
+			String deleteEmailGroupMemberSQL = String.format("DELETE FROM EMAIL_MEMBER_GROUP WHERE GROUP_NAME='%1$s'", listName);
+			statement.executeUpdate(deleteEmailGroupMemberSQL);
+			
+			String deleteEmailGroup = String.format("DELETE FROM EMAIL_GROUP WHERE NAME='%1$s'", listName);
+			statement.executeUpdate(deleteEmailGroup);
+			
+			return true;
+			
+		} catch (SQLException e) {
+			return false;
+		}
 	}
 	
 	public List<EmailModel> getModels(List<String> groupList) {

@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import dataaccess.EmailDAO;
-import dataaccess.UserDAO;
 
 public class EmailModel {
 	
@@ -17,10 +16,8 @@ public class EmailModel {
 		}
 		
 		public static Boolean deleteEmailList(String listName) {
-			System.out.println("Access EmailDAO object");
-			System.out.println("Call EmailDAO object deleteEmailList method");
 			Boolean status = EmailDAO.getInstance().deleteEmailList(listName);
-		
+	
 			return status;
 		}
 		
