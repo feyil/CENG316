@@ -93,11 +93,9 @@ public class EmailDAO {
 		return emailLists;
 	}
 	
-	public Boolean deleteEmailList(String listName)  {
-		System.out.println("Make neccessarily data delete query and delete list from persistence storage");
-		System.out.println("Return status of the opeartion as boolean");
-		
+	public Boolean deleteEmailList(String listName)  {	
 		Statement statement = DBBase.createStatement();
+		
 		String sql = String.format("SELECT MEMBER_EMAIL FROM EMAIL_MEMBER_GROUP WHERE GROUP_NAME='%1$s'", listName);
 		
 		try {
@@ -125,16 +123,37 @@ public class EmailDAO {
 	
 	public List<EmailModel> getModels(List<String> groupList) {
 		List<EmailModel> models = new ArrayList<EmailModel>();
-		System.out.println("Make neccessairly data query to collect all EmailModels(GroupList) in a List<EmailModel>");
 		
-		EmailModel tmp = new EmailModel();
-		tmp.setEmailID(1);
-		tmp.setNameSurname("Furkan Emre YILMAZ");
-		tmp.setGrade("3");
-		tmp.setEmail("furkan54emre@gmail.com");
+		Statement statement = DBBase.createStatement();
 		
-		models.add(tmp);
-		
+		String groupNames = "";
+		for (String groupName : groupList) {
+			if(groupNames.equals("") == false) {
+				groupNames += " or ";
+			}
+			String groupSQL = String.format("GROUP_NAME='%1$s'", groupName);
+			groupNames += groupSQL;
+		}
+		System.out.println(groupNames);
+		String sql = String.format("SELECT * FROM EMAIL_MEMBER inner join email_member_group on EMAIL=MEMBER_EMAIL WHERE %1$s;", groupNames);
+		try {
+			ResultSet result = statement.executeQuery(sql);
+			
+			while(result.next()) {
+				EmailModel tmp = new EmailModel();
+				
+				tmp.setEmail(result.getString("EMAIL"));
+				tmp.setGrade(result.getString("GRADE"));
+				tmp.setNameSurname(result.getString("NAMESURNAME"));
+				
+				models.add(tmp);
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+				
 		return models;
 	}
 }

@@ -26,6 +26,7 @@ public class SearchDeleteEmailPopupBuilder {
 			EmailEntryController tmp = new EmailEntryController();
 			
 			tmp.setEmailID(models.get(i).getEmailID())
+					.setNameSurname(models.get(i).getNameSurname())
 					.setEmail(models.get(i).getEmail())
 					.setGrade(models.get(i).getGrade());
 			
