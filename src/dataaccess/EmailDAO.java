@@ -134,7 +134,7 @@ public class EmailDAO {
 			String groupSQL = String.format("GROUP_NAME='%1$s'", groupName);
 			groupNames += groupSQL;
 		}
-		System.out.println(groupNames);
+		
 		String sql = String.format("SELECT * FROM EMAIL_MEMBER inner join email_member_group on EMAIL=MEMBER_EMAIL WHERE %1$s;", groupNames);
 		try {
 			ResultSet result = statement.executeQuery(sql);
