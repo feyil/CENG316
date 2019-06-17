@@ -1,5 +1,6 @@
 package dataaccess;
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -44,18 +45,13 @@ public class EmailDAO {
 			try {
 				statement.executeUpdate(sql);
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				// Not an clever implementation
 			}
 		}
 	}
 	
 	public Boolean push(EmailModel emailModel) {
-		System.out.println("EmailModel related field accesed");
-		System.out.println("DB connection accesed");
-		System.out.println("Related SQL Command runned");
-		System.out.println("Status returned as boolean");
-		
+
 		String nameSurname = emailModel.getNameSurname();
 		String email = emailModel.getEmail();
 		String grade = emailModel.getGrade();
@@ -80,11 +76,21 @@ public class EmailDAO {
 	public List<String> getEmailLists() {
 		System.out.println("Necessary data query made to find all emailLists");
 		List<String> emailLists = new ArrayList<String>();
-		emailLists.add("Junior");
-		emailLists.add("Senior");
-		emailLists.add("Sophomore");
-		System.out.println("List filled and returned");
 		
+		Statement statement = DBBase.createStatement();
+		String sql = "SELECT * FROM EMAIL_GROUP";
+		
+		try {
+			ResultSet result = statement.executeQuery(sql);
+			
+			while(result.next()) {
+				String groupName = result.getString("NAME");
+				emailLists.add(groupName);
+			}
+		}catch (SQLException e) {
+			// TODO: handle exception
+		}
+				
 		return emailLists;
 	}
 	
