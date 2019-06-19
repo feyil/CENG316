@@ -29,3 +29,10 @@ Some of the screenshots taken from app included below:
 
 ![alt text](https://github.com/feyil/CENG316/blob/master/Screenshots/screen3.png "screen3")
 
+![alt text](https://github.com/feyil/CENG316/blob/master/Screenshots/screen4.png "screen4")
+
+![alt text](https://github.com/feyil/CENG316/blob/master/Screenshots/screen5.png "screen5")
+
+![alt text](https://github.com/feyil/CENG316/blob/master/Screenshots/screen6.png "screen6")
+
+
